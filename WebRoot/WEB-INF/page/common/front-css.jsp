@@ -2,4 +2,4 @@
 <%@include file="/WEB-INF/page/common/taglibs.jsp"%>
 
 
-<link href="<c:url value='/static/css/globalforwiki.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/global.css'/>" rel="stylesheet" type="text/css" />
