@@ -1,0 +1,25 @@
+<!doctype HTML>
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="jquery.min.js"></script>
+	</head>
+	<body>
+	<script>
+		$.ajax({
+			type:"GET",
+			url:"a.js",
+			dataType:"jsonp",
+			jsonp: "escallback",
+			jsonpCallback: '_GroupMember_Callback',
+			success:function(data){
+				alert(data);
+				console.log("ok");
+			},
+			error:function(){
+				console.log("error");
+			}
+		})
+		</script>
+	</body>
+</html>

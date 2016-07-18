@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans classpath:org/springframework/beans/factory/xml/spring-beans-3.0.xsd
+       	http://www.springframework.org/schema/context classpath:org/springframework/context/config/spring-context-3.0.xsd
+     	http://www.springframework.org/schema/tx classpath:org/springframework/transaction/config/spring-tx-3.0.xsd
+     	http://www.springframework.org/schema/aop classpath:org/springframework/aop/config/spring-aop-3.0.xsd">
+
+	<!-- ==========================  AOP方式定义事务  ========================== -->
+	<!-- 支持 @Transactional 标记 -->
+	<tx:annotation-driven />
+
+	<!-- 支持 @AspectJ 标记-->
+	<aop:aspectj-autoproxy />
+
+	<!-- 以AspectJ方式 定义 AOP -->
+	<aop:config proxy-target-class="true">
+		<!--
+			This definition creates auto-proxy infrastructure based on the given pointcut,
+			expressed in AspectJ pointcut language. Here: applying the advice named
+			"txAdvice" to all methods on classes named PetStoreImpl.
+		-->
+		<aop:advisor pointcut="execution(* com.piggysnow.common..*Dao.*(..))"
+			advice-ref="txAdvice" />
+		<aop:advisor
+			pointcut="execution(* com.piggysnow.boss.*.services.*Service.*(..))"
+			advice-ref="txAdvice" />
+	</aop:config>
+
+	<!-- 基本事务定义,使用transactionManager作事务管理,默认get*方法的事务为readonly,其余方法按默认设置.
+		默认的设置请参考Spring文档事务一章. -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- <tx:method name="get*" read-only="true" /> -->
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="test*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	<!--  保留AOP用
+	<bean id="msgSender" class="com.gzy.zjer.utils.MessageSender"/>
+	  <aop:config>
+	    <aop:aspect id="dealdfgdf" ref="msgSender">
+	      <aop:pointcut id="target" expression="execution(* com.gzy.zjer.*.services.*Service.*(..))"/>
+	      <aop:before method="doSome" pointcut-ref="target"/>
+	    </aop:aspect>
+	  </aop:config> -->
+</beans>

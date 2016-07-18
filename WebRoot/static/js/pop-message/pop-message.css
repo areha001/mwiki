@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+#popupMessageBox{
+	position:absolute;
+	width:280px;
+	background-color:#fff;
+	border:10px solid #000;
+	padding:10px;
+	display:none;
+}

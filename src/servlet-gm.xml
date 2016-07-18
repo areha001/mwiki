@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd">
+
+	<!-- 激活Spring注解方式：自动扫描，并注入bean -->
+	<context:component-scan base-package="com.piggysnow.boss.core.web.admin.controller" />
+	
+	<!-- ===========================  定义web控制器 ======================= -->
+	<bean id="adminDictController"
+		class="com.piggysnow.boss.core.web.admin.controller.AdminDictController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<!--后台管理-老师管理 -->
+	<bean id="gmController"
+		class="com.piggysnow.boss.core.web.admin.controller.GMController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="partnerManagerController"
+		class="com.piggysnow.boss.core.web.admin.controller.PartnerManagerController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+		<!--后台管理-后台登陆 -->
+	<bean id="adminLoginController"
+		class="com.piggysnow.boss.core.web.admin.controller.AdminLoginController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	
+	<!--后台管理-角色权限管理 -->
+	<bean id="roleManagerController"
+		class="com.piggysnow.boss.core.web.admin.controller.RoleManagerController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	
+	<!--后台管理-服务器管理 -->
+	<bean id="serverManagerController"
+		class="com.piggysnow.boss.core.web.admin.controller.ServerManagerController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	
+	<!--后台管理-分区开服管理 -->
+	<bean id="partitionInfoController"
+		class="com.piggysnow.boss.core.web.admin.controller.PartitionInfoController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	
+	
+	<!--后台修改管理员个人密码 -->
+	<bean id="updateAdminPasswordController"
+		class="com.piggysnow.boss.core.web.admin.controller.UpdateAdminPasswordController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	
+	<bean id="adminRoleManagerController"
+		class="com.piggysnow.boss.core.web.admin.controller.AdminRoleManagerController">
+		<property name="methodNameResolver" ref="paramMethodResolver"></property>
+	</bean>
+	<bean id="userTeamRoleController"
+		class="com.piggysnow.boss.core.web.admin.controller.UserTeamRoleController">
+		<property name="methodNameResolver" ref="paramMethodResolver"></property>
+	</bean>
+	<bean id="adminAnalyzeController"
+		class="com.piggysnow.boss.core.web.admin.controller.AdminAnalyzeController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="adminSysDictController"
+		class="com.piggysnow.boss.core.web.admin.controller.AdminSysDictController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="playerController"
+		class="com.piggysnow.boss.core.web.admin.controller.PlayerController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="msgController"
+		class="com.piggysnow.boss.core.web.admin.controller.MsgController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="giftController"
+		class="com.piggysnow.boss.core.web.admin.controller.GiftController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="happenController"
+		class="com.piggysnow.boss.core.web.admin.controller.HappenController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="giftCodeController"
+		class="com.piggysnow.boss.core.web.admin.controller.GiftCodeController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	
+	<bean id="staticServiceController"
+		class="com.piggysnow.boss.core.web.admin.controller.StaticServiceController" lazy-init="false">
+	</bean>
+	
+	
+	<bean id="roleController"
+		class="com.piggysnow.boss.core.web.controller.RoleController">
+		<property name="methodNameResolver" ref="paramMethodResolver"></property>
+	</bean>
+	<bean id="statisticsController"
+		class="com.piggysnow.boss.core.web.admin.controller.StatisticsController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="rechargeQueryController"
+		class="com.piggysnow.boss.core.web.admin.controller.RechargeQueryController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="userRetentionController"
+		class="com.piggysnow.boss.core.web.admin.controller.UserRetentionController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="newAndActiveController"
+		class="com.piggysnow.boss.core.web.admin.controller.NewAndActiveController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	<bean id="prepaidListController"
+		class="com.piggysnow.boss.core.web.admin.controller.PrepaidListController">
+		<property name="methodNameResolver" ref="paramMethodResolver" />
+	</bean>
+	
+	<!-- 配置视图解析 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="paramMethodResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="method" />
+	</bean>
+
+	<!-- 用于文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
+
+	<bean id="adminUrlMappinglogin" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+		<prop key="admin/adminLogin.do">adminLoginController</prop>
+		</props>
+		</property>
+	</bean>
+
+	<!-- 后台系统管理 -->
+	<bean id="adminUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="loginInterceptor" />
+			</list>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="admin/updateAdminPassword.do">updateAdminPasswordController</prop>
+				
+				<prop key="admin/gm.do">gmController</prop>
+				<prop key="admin/partnerManager.do">partnerManagerController</prop>
+				<prop key="admin/msg.do">msgController</prop>
+				<prop key="admin/analyze.do">adminAnalyzeController</prop>
+				<prop key="admin/dict.do">adminDictController</prop>
+				<prop key="admin/roleManager.do">roleManagerController</prop>
+				<prop key="admin/sysDict.do">adminSysDictController</prop>
+				<prop key="admin/staticService.do">staticServiceController</prop>
+				<prop key="admin/serverManager.do">serverManagerController</prop>
+				<prop key="admin/player.do">playerController</prop>
+				<prop key="admin/gift.do">giftController</prop>
+				<prop key="admin/happen.do">happenController</prop>
+				<prop key="admin/giftCode.do">giftCodeController</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

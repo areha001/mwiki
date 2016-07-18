@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="D:/apache-tomcat-6.0.41/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/protobuf-java-2.5.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-fileupload-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/apache-tomcat-6.0.41/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate-annotations-3.2.1.ga.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MyLib"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>

@@ -1,0 +1,266 @@
+//Table: User, VIP, UserReputation
+
+message User
+{
+	optional int64 uid = 1;
+	optional string team_name = 2;
+	optional int64 force = 3;
+	optional int64 level = 4;
+	optional int64 exp = 5;
+	optional int64 leadership = 6;
+	optional int64 dollar = 7;
+	optional int64 gold = 8;
+	optional int64 last_login_time = 9;
+
+    optional int64 vip = 10;
+    optional int64 vip_level = 11;
+
+    optional int64 reputation = 12; //may not need
+    optional int64 win_game = 13;  //number of win games in one day
+    optional int64 energy = 14;
+    optional int64 energy_max = 15;
+    optional int64 energy_update_time = 16;
+    optional int64 buy_energy_time = 17;
+    optional int64 fresh_man = 18;
+
+    optional int64 day_count = 19;         //登陆的第几天
+    repeated int64 sign_up_flag = 20;      //获取奖励对应的标志
+
+    optional int64 month_card = 21;     //月卡天数
+    repeated int64 recharge_flag = 22;  //首充的标志
+
+    optional int64 sign_up_time = 23;       //签到的时间
+    optional int64 month_card_time = 24;    //发放月卡奖励的时间
+
+    optional int64 history_dollar = 25; //活动上充的钱数
+
+    optional int64 guard_days = 26;     //守护天数
+    optional int64 guard_update_time = 27;      //守护更新时间
+    optional int64 guard_flag = 28;     //守护标志   1 审核用  2 正常用
+
+    optional int64 buy_leadership_time = 29;    //购买领导力的次数
+    optional int64 buy_leadership_max_time = 30;    //购买领导力最大次数
+
+    optional int64 daily_dollar = 31;   //单日充的钱数(每天清空)
+    optional int64 tian_gift_count = 32;   //天天小礼累计充值天数
+    optional int64 tian_gift_flag = 33;    //天天小礼当天是否已算入累计天数 0没有 1有(每天清空)
+    optional int64 ri_gift_count = 34;   //日日大礼累计充值天数
+    optional int64 ri_gift_flag = 35;    //日日大礼当天是否已算入累计天数 0没有 1有(每天清空)
+
+    optional int64 daily_consume_dollar = 36;   //当日消费金额(每天清空) (活动更新也清空)
+
+    optional int64 firstflush_flag = 37;   //首冲活动标志
+}
+
+//Table: UserTeam
+message Skill
+{
+    optional int64 skill_id = 1;
+    optional int64 state = 2;
+    optional int64 high_level_num = 3;
+    optional int64 low_level_num = 4;
+    optional int64 high_level = 5;
+    optional int64 low_level = 6;
+}
+
+message PlayerProp
+{
+    optional int64 braces = 1;
+    optional int64 shirt = 2;
+    optional int64 pant = 3;
+    optional int64 shoes = 4;
+    optional int64 left_accessory = 5;
+    optional int64 right_accessory = 6;
+}
+
+message Player
+{
+    optional int64 player_id = 1;
+    optional int64 field_goal = 2;
+    optional int64 three_point = 3;
+    optional int64 assist = 4;
+    optional int64 in_defense = 5;
+    optional int64 out_defense = 6;
+    optional int64 co_defense = 7;
+
+    repeated Skill skills = 8;
+
+    optional int64 position = 9;
+    optional int64 ability_rate = 10;
+    optional int64 first = 11;
+
+    optional int64 level = 12;
+    optional int64 level_max = 13;
+    optional int64 exp = 14;
+    optional int64 rank = 15;
+    optional int64 develop = 16;
+	
+	optional int64 index = 17; //没什么用去掉
+	optional PlayerProp prop = 18;
+
+	optional int64 fight_time = 19;         //斗牛的次数
+	optional int64 fight_max_time = 20;     //斗牛的最大次数
+
+	optional int64 best_team_buff = 21;     //最佳阵容buff 0没触发 1现役最佳 2退役最佳
+
+    //计算buff后的属性提升率  (千分比)
+    optional int64 field_goal_rate = 22;
+    optional int64 three_point_rate = 23;
+    optional int64 assist_rate = 24;
+    optional int64 in_defense_rate = 25;
+    optional int64 out_defense_rate = 26;
+    optional int64 co_defense_rate = 27;
+    optional int64 two_point_bingo_rate = 28;
+    optional int64 three_point_bingo_rate = 29;
+}
+
+message UserTeam 
+{
+    repeated Player players = 1;
+    optional int64 max_count = 2;
+
+    optional int64 leader = 3;
+    optional int64 attack_tac = 4;
+    optional int64 defense_tac = 5;
+    optional int64 all_attack = 6; //没什么用去掉
+    optional int64 all_defense = 7; //没什么用去掉
+    optional int64 origin_attack = 8; //没什么用去掉
+    optional int64 origin_defense = 9; //没什么用去掉
+    optional int64 attack_tac_level = 10;
+    optional int64 defense_tac_level = 11;
+    optional int64 best_team_buff_active = 12;            //1位现役 2位退役
+}
+
+message BestTeam
+{
+    repeated int64 pg = 1;
+    repeated int64 sg = 2;
+    repeated int64 sf = 3;
+    repeated int64 pf = 4;
+    repeated int64 c = 5;
+    repeated string buff_dec = 6;
+}
+
+message TacticItem
+{
+    optional int64 id = 1;
+    optional int64 level = 2;
+    optional int64 num = 3;
+}
+
+message Tactic
+{
+    repeated TacticItem items = 1;
+}
+
+message BattleReport
+{
+    optional int64 type = 1;        //战报类型
+    optional int64 uid = 2;         //需要回打的uid
+    optional string name = 3;
+    optional int64 money = 4;       //抢了多少钱
+    optional int64 index = 5;       //所在index
+    optional int64 rank = 6;        //下降到rank
+    optional int64 expire = 7;      //过期时间
+    optional int64 status = 8;      //是否已读
+}
+
+message BattleReportList
+{
+    repeated BattleReport report = 1;   //report
+}
+
+//Bag part
+message BagItem
+{
+	optional int64 item_id = 1;
+	optional int64 count = 2;
+	optional int64 expire = 3;
+	optional int64 type = 4;
+	optional int64 create_time = 5;
+	optional int64 item_max_count = 6;      //重叠上限
+	optional int64 index = 7;
+}
+
+message Bag
+{
+	repeated BagItem items = 1;
+	optional int64 max_count = 2;
+}
+
+message CheckUid
+{
+    optional string key = 1;
+    optional int64 uid = 2;
+}
+
+//球星市場部份
+message PlayerMarket
+{
+    optional int64 free_times = 1;          //免费的次数
+    optional int64 common_timestamp = 2;    //普通区时间戳
+    optional int64 lottery_timestamp = 3;   //乐透区时间戳
+    optional int64 history_dollar = 4;      //历史上一共花了多少美金
+    optional int64 begin_time = 5;          //开始
+    optional int64 end_time = 6;            //结束
+    optional int64 dollar_count = 7;        //时间段内总共花的美金
+    optional int64 first_time = 8;          //是否首抽
+}
+
+message CardBase
+{
+    repeated int64 card_X = 1;
+    repeated int64 card_S = 2;
+    repeated int64 card_A = 3;
+    repeated int64 card_B = 4;
+    repeated int64 card_C = 5;
+    repeated int64 card_D = 6;
+}
+
+message AreaItem
+{
+    optional int64 num = 1;
+    optional string name = 2;
+    optional string ip = 3;
+    optional int64 status = 4;
+}
+
+message Area        /// 区服
+{
+    repeated AreaItem area = 1;
+}
+
+message BigUserItem
+{
+    optional int64 zone = 1;
+    optional int64 uid = 2;
+}
+
+message BigUser
+{
+    repeated BigUserItem users = 1;
+}
+
+message Matador
+{
+    optional Player player = 1;
+    optional int64 uid = 2;   //被挑选的uid
+    optional int64 index = 3;
+    optional int64 field = 4;   //场地号
+    optional string user_name = 5;  //被挑中斗牛士的用户的名字
+    optional string field_name = 6;  //场地名称
+    optional string player_name = 7;  //球员名称
+}
+
+message MatadorList    //斗牛士列表
+{
+    repeated Matador matador = 1;
+}
+
+message StarGift
+{
+    optional int64 token = 1;
+    repeated int64 players = 2;
+    repeated int64 levels = 3;
+    repeated int64 status = 4;
+}

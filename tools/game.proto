@@ -1,0 +1,223 @@
+message Game
+{
+	optional int32 round = 1; // current round for the game
+	optional int32 sub_round = 2; // sub round for this game
+	
+	message PlayerTemp
+	{
+		optional int32 player_id = 1; 
+		optional int32 in_attack = 2; 
+		optional int32 out_attack = 3;
+		optional int32 in_defense = 4;
+		optional int32 out_defense = 5;
+		optional int32 assist_rate = 6;
+		optional int32 co_defense = 7;
+		optional int32 attack_way = 21;
+		optional int32 foul_trend = 22;
+		optional int32 free_throw_rate = 23;
+		optional int32 rebound_rate = 24;
+
+		optional int32 points = 8;
+		optional int32 two_point_shot = 9;
+		optional int32 two_point_bingo = 10;
+		optional int32 three_point_shot = 11;
+		optional int32 three_point_bingo = 12;
+		optional int32 free_throw = 13;
+		optional int32 free_throw_bingo = 14;
+		optional int32 rebounds = 15;
+		optional int32 assists = 16;
+		optional int32 steals = 17;
+		optional int32 blocks = 18;
+		optional int32 fouls = 19;
+
+		optional int32 prop = 20;
+		optional int32 left_round = 25;
+
+		optional int32 position = 26;
+
+		repeated int32 buffs = 27;
+		optional bool leader = 28;
+		optional int32 first = 29;
+		optional int32 best_team_buff = 30;
+		optional int32 two_point_bingo_rate = 31;
+		optional int32 three_point_bingo_rate = 32;
+	}
+
+	optional int32 host = 3;
+	optional int32 guest = 4;
+	optional int32 host_points = 5;
+	optional int32 guest_points = 6;
+	optional int32 host_attack_tactic = 7;
+	optional int32 host_defense_tactic = 8;
+	optional int32 guest_attack_tactic = 9;
+	optional int32 guest_defense_tactic = 10;
+	repeated PlayerTemp host_players = 11;
+	repeated PlayerTemp guest_players= 12;
+
+	optional int32 host_rebound = 13;
+	optional int32 guest_rebound = 14;
+	optional int32 game_type = 15;
+
+	optional int32 host_attack = 16;
+
+	optional int32 host_assist_rate = 17;
+	optional int32 guest_assist_rate = 18;
+
+	optional int32 game_level = 19; //for pve star
+
+	optional int32 host_attack_tactic_level = 20;
+    optional int32 host_defense_tactic_level = 21;
+    optional int32 guest_attack_tactic_level = 22;
+    optional int32 guest_defense_tactic_level = 23;
+    optional int32 host_best_team_buff = 24;
+    optional int32 guest_best_team_buff = 25;
+}
+
+message GameOneRoundResult
+{
+	optional int32 round = 1;  // current round num
+	optional int32 attacker = 2; // attacker ID
+	optional int32 defender = 3; // defender ID
+	optional int32 a_assist = 4; // attacker assist player id
+	optional int32 a_foul = 5; // attacker foul player id, if any
+	optional int32 d_foul = 6; // defender foul player id, if any
+	optional int32 a_rebound = 7; // attacker rebound player id
+	optional int32 d_rebound = 8; // defender rebound player id
+	optional int32 d_block = 9; // defense block player id;
+	optional int32 a_point = 10; // attacker points, 2, 3, 
+								// three throws, 12 for three of three throws
+	optional int32 a_pointer = 11; // attacker pointer
+	optional int32 d_point = 12; // defender points
+	optional int32 d_pointer = 13; // defender pointer
+	optional int32 a_miss = 14; // attacker miss
+	optional int32 d_miss = 15; // defender miss
+	optional int32 a_steal = 16;
+	optional int32 d_steal = 17;
+	
+	optional int32 result = 18;
+
+	optional int32 a_fthrow = 19;
+	optional int32 a_fthrow_bingo = 20;
+	optional int32 a_way = 21;
+	optional int32 d_way = 22;
+	optional int32 da_way = 23;
+	optional int32 a_sway = 24;
+	optional int32 sub_round = 25;
+
+	optional int32 match_id = 26;
+	optional int32 a_prop = 27;
+	optional int32 d_prop = 28;
+	optional int32 d_codefender = 29;
+
+	repeated int32 a_buff = 30;
+	repeated int32 d_buff = 31;
+
+	optional bool a_t = 32;
+	optional bool d_t = 33;
+	
+	optional int32 a_hrate = 34;
+}
+
+message GameBasicSet        //客户端传来的战斗部署
+{
+	optional int32 uid = 1;
+	optional int32 attack_tatic = 2;
+	optional int32 defense_tatic = 3;
+
+	message GamePlayerSet
+	{
+		optional int32 player_index = 1;  /* index is much more convenient */
+		optional int32 prop_id = 2;
+	}
+
+	repeated GamePlayerSet players = 4;
+	optional int32 match_id = 5;
+	optional int32 round = 6;
+}
+
+message GameInitResult
+{
+	optional int32 uid = 1;
+	optional int32 opponent = 2;
+	optional int32 attack = 3;
+	optional int32 game_type = 4;
+	optional string opponent_name = 5;
+	optional int32 opponent_force = 6;
+	optional int32 opponent_attack = 7;
+	optional int32 opponent_defense = 8;
+}
+
+message GameResults
+{
+	optional int32 uid = 1;
+	optional int32 points = 2;
+	optional int32 opponent_points = 3;
+	optional int32 game_type = 6;
+	optional int32 opponent = 7;
+	optional int32 game_level = 8;
+	optional int32 point_diff = 9;
+	optional int32 win_condition = 10;      //0条件满足(兼容之前的)  1条件不满足
+	
+	message PlayerStatis
+	{
+		optional int32 points = 1;
+		optional int32 two_point_shot = 2;
+		optional int32 two_point_bingo = 3;
+		optional int32 three_point_shot = 4;
+		optional int32 three_point_bingo = 5;
+		optional int32 free_throw = 6;
+		optional int32 free_throw_bingo = 7;
+		optional int32 rebounds = 8;
+		optional int32 assists = 9;
+		optional int32 steals = 10;
+		optional int32 blocks = 11;
+		optional int32 fouls = 12;
+		optional int32 player_id = 13;
+	}
+
+
+	repeated PlayerStatis self_statis = 4;
+	repeated PlayerStatis opponent_statis = 5;
+}
+
+message Buff
+{
+	optional int32 id = 1;
+	optional int32 buff_range = 2;
+	optional int32 effect = 3;
+	optional int32 opt = 4;
+	optional int32 value = 5;
+	optional int32 rate = 6;
+	optional int32 buff_type = 7;
+}
+
+message PropCard
+{
+	optional int32 flag = 1;
+	optional int32 update_time = 2;
+	repeated int32 cards = 3;
+}
+
+message PVEData
+{
+ 	optional int32 game_id = 1;
+	optional string session_key = 2;
+	optional int32 game_type = 3;
+}
+
+message ChatMessage
+{
+	optional int32 uid = 1;
+	optional int32 message_type = 2;
+	optional string content = 3;
+	optional string name = 4;
+	optional int32 group = 5;
+	optional int32 level = 6;
+	optional int32 chat_uid = 7;
+}
+
+message GameTempResult
+{
+    repeated GameOneRoundResult temp_results = 1;
+    optional string reward = 2;
+}

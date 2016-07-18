@@ -1,0 +1,72 @@
+/*----------------------------------------
+Des: 用于修复在不同浏览器之间的BUG
+Developed by: 可乐加糖
+Date Created:2009-10-25
+Last Updated:2009-10-25
+Copyright: 北京国之源
+----------------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-family: inherit;
+	text-align: left;
+	vertical-align: baseline;
+}
+
+body
+{
+	background-color:#000;
+	text-align:center;
+}
+
+body, p, td, th, li
+{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	line-height:1.5em;
+	color:#000000;
+}
+/* 按钮样式 */
+.button{
+	background: url("../images/button.gif") left top no-repeat;
+	width:85px;
+	height:42px;
+	text-align: center;
+	border:none;
+	margin:0 15px 0 0;
+}
+.button span{
+	position:relative;
+	top:-6px;
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+}
+/* 登陆面板样式 */
+#loginpanel{
+	width:583px;
+	margin:0 auto;
+	min-height:300px;
+	margin-top:13%;
+}
+#tablogin td{
+	padding:10px 0;
+	font-size:14px;
+}
+#username,#userpass{
+	border:1px solid #c2c2c2;
+	padding:3px 0 3px 25px;
+	width:80%;
+	height:20px;
+	line-height:20px;
+	background:#fff url("../images/lock.png") 5px center no-repeat;
+}
+#username{
+	background:#fff url("../images/user.png") 5px center no-repeat;
+}

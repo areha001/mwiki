@@ -1,0 +1,91 @@
+.chromestyle{
+	width:960px;
+	height:25px;
+	float:left;
+	background:url(../../../HTML/superteacher/images/skin-1/top-bg.gif) left top no-repeat;
+}
+
+.chromestyle:after{ /*Add margin between menu and rest of content in Firefox*/
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+.chromestyle ul{
+	width:960px;
+	height:23px;
+	/*background: url(chromebg.gif) center center repeat-x; THEME CHANGE HERE*/
+	margin: 0;
+	text-align: right; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle ul li{
+	height:24px;
+	line-height:24px;
+	display: inline;
+	vertical-align:middle!important;
+	margin:0px 5px;
+	font-size:14px;
+	font-weight:normal;
+}
+
+.chromestyle ul li *{
+	vertical-align:middle!important;
+}
+
+.chromestyle ul li a{
+	color: #494949;
+	margin: 0;
+	text-decoration: none;
+}
+#searchtext{
+	width:240px;
+	height:16px;
+	line-height:16px;
+	border:1px solid #CCC;
+}
+#searchbtn{
+	border:none;
+	text-indent:-9999px;
+	background:url(../../../HTML/superteacher/images/skin-1/top-btnsearch.gif) right top no-repeat;
+	width:65px;
+	height:20px;
+}
+
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv{
+	position:absolute;
+	top: 0;
+	border: 1px solid #BBB; /*THEME CHANGE HERE*/
+	border-bottom-width: 0;
+	font:normal 12px Verdana;
+	line-height:18px;
+	z-index:100;
+	background-color: white;
+	width: 100px;
+	visibility: hidden;
+}
+
+
+.dropmenudiv a{
+	width: auto;
+	display: block;
+	text-indent: 3px;
+	border-bottom: 1px solid #BBB; /*THEME CHANGE HERE*/
+	padding: 2px 0;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+* html .dropmenudiv a{ /*IE only hack*/
+	width: 100%;
+}
+
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+	background-color: #F0F0F0;
+}

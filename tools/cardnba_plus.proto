@@ -1,0 +1,81 @@
+message Vip
+{
+    optional int64 level = 1;                   //vip等级
+    optional int64 history_dollar = 2;          //历史上充的钱数
+
+    optional int64 buy_coin = 3;                //购买金币
+    optional int64 coin_status = 4;              //已购买金币的次数
+    optional int64 buy_energy = 5;               //购买精力
+    optional int64 energy_status = 6;            //已购买精力次数
+    optional int64 buy_rank_match = 7;           //购买排名赛次数
+    optional int64 rank_match_status = 8;       //已购买排名赛次数
+    optional int64 money_match_num = 9;         //抢金赛多加的人数
+
+    optional int64 reset_singles_match = 10;     //重置斗牛赛
+    optional int64 reset_singles_status = 11;    //已重置斗牛赛次数
+}
+
+message ShopItem                        //物品和活动复用
+{
+    optional int64 item_id = 1;
+    optional int64 type = 2;
+    optional int64 gold = 3;
+    optional int64 sale_gold = 4;
+    optional int64 dollar = 5;
+    optional int64 sale_dollar = 6;
+    optional int64 limit_start_time = 7;
+    optional int64 limit_end_time = 8;
+    optional int64 limit = 9;                   //0可买  1已购买
+    optional string name = 10;
+    optional string description = 11;
+    optional int64 icon = 12;
+    optional int64 num = 13;
+}
+
+message Shop
+{
+    repeated ShopItem item = 1;
+}
+
+message ActivityReward          //活动奖励
+{
+    repeated ShopItem items = 1;                //奖励的item(复用ShopItem)
+    optional int64 status = 2;                  //奖励的状态(需要存数据库) 0 不可领  1 可领   2 已领
+    optional string des = 3;                    //奖励的描述
+    optional int64 index = 4;                   //奖励的index
+    optional int64 dosage = 5;                  //奖励可领的数量
+}
+
+message ActivityUnit            //活动单元
+{
+    repeated ActivityReward rewards = 1;        //活动的奖励或者物品(存数据库)
+    repeated string description = 2;            //活动页面的一些描述(按潜规则定)
+    optional int64 dollar = 3;                  //活动页面的美金
+    optional int64 start_time = 4;              //活动开始时间(需要存数据库)
+    optional int64 end_time = 5;                //活动结束时间(需要存数据库)
+    optional int64 time_stamp = 6;              //
+    optional int64 player_id1 = 7;              //活动页面球员的ID
+    optional int64 player_id2 = 8;              //
+    optional int64 type = 9;                    //活动的type
+    optional string name = 10;                  //活动的名字
+    optional int64 rank = 11;                   //用作活动的先后排序
+    optional int64 refresh_time = 12;           //商店刷新的次数
+    optional int64 day_count = 13;              //累计天数
+    repeated ShopItem props = 14;               //兑换活动需要的物品
+}
+
+message Activities              //精彩活动
+{
+    optional ActivityUnit recharge_acti = 1;    //充值活动
+    optional ActivityUnit limited_star = 2;     //限时巨星活动
+    optional ActivityUnit monthly_star = 3;     //每月巨星活动
+    optional ActivityUnit mystical_shop = 4;    //神秘商店活动
+    optional ActivityUnit vip_bonus = 5;        //vip福利
+    optional ActivityUnit vip_gift = 6;        //vip礼包
+    optional ActivityUnit james_shop = 7;        //詹皇小店
+    optional ActivityUnit tian_gift = 8;      //天天小礼
+    optional ActivityUnit ri_gift = 9;        //日日大礼
+    optional ActivityUnit tuhao_acti = 10;      //土豪有礼
+    optional ActivityUnit consumer_acti = 11;      //消费有奖
+    optional ActivityUnit universal_acti = 12;      //全民有奖
+}

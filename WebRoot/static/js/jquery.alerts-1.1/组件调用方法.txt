@@ -1,0 +1,14 @@
+facebox 建议建议在异步加载页面时使用。提示信息，弹出框等，可以使用 jquery.alerts组件，
+调用方式如下
+
+1.确保导入了 jquery.js
+2.引入CSS样式和JS脚本
+
+<link type="text/css" rel="stylesheet" href="<c:url value='/js/jquery.alerts-1.1/jquery.alerts.css'/>" />
+<script src="<c:url value='/js/jquery.alerts-1.1/jquery.alerts.js'/>" type="text/javascript" language="javascript"></script>
+
+3.调用方法
+
+jAlert( message, [title, callback] )
+jConfirm( message, [title, callback] )
+jPrompt( message, [value, title, callback] )

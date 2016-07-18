@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	<!-- <bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties" />
+	</bean>
+	<bean id="dictService"
+		class="com.piggysnow.boss.core.services.DictService" />
+	<bean id="userService"
+		class="com.piggysnow.boss.core.services.UserService" />
+	<bean id="userTeamRoleService"
+		class="com.piggysnow.boss.core.services.UserTeamRoleService" />
+	<bean id="partnerService"	
+		class="com.piggysnow.boss.core.services.PartnerService" />
+	<bean id="serverService"	
+		class="com.piggysnow.boss.core.services.ServerService" />
+	<bean id="roleService"	
+		class="com.piggysnow.boss.core.services.RoleService" />
+	<bean id="subRoleService"	
+		class="com.piggysnow.boss.core.services.SubRoleService" />
+	<bean id="msgService"	
+		class="com.piggysnow.boss.core.services.MsgService" />
+	<bean id="gmailService"	
+		class="com.piggysnow.boss.core.services.GMailService" />
+	<bean id="lockInfoService"	
+		class="com.piggysnow.boss.core.services.LockInfoService" />
+	<bean id="giftService"	
+		class="com.piggysnow.boss.core.services.GiftService" />
+	<bean id="happenService"	
+		class="com.piggysnow.boss.core.services.HappenService" />
+	<bean id="giftCodeService"	
+		class="com.piggysnow.boss.core.services.GiftCodeService" />
+	<bean id="callService"
+		class="com.piggysnow.boss.core.services.CallService"/>		
+	<bean id="activityService"
+		class="com.piggysnow.boss.core.services.ActivityService"/>		
+	<bean id="feedbackService"
+		class="com.piggysnow.boss.core.services.FeedbackService"/>		
+	<bean id="versionService"
+		class="com.piggysnow.boss.core.services.VersionService"/>		
+	<bean id="accountService" class="com.piggysnow.boss.core.services.AccountService" />-->
+</beans> 

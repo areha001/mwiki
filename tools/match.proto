@@ -1,0 +1,170 @@
+message RewardItem     //算了，直接创个一模一样的。。。
+{
+    optional int64 type = 1;
+    optional int64 id = 2;
+    optional int64 num = 3;
+	optional int64 opt = 4;       //多少钱
+	optional int64 ext1 = 5;
+    optional int64 ext2 = 6;
+	optional int64 process = 7;   //是否买过
+	optional int64 rate = 8;
+}
+
+message MultiRewardItem
+{
+    repeated RewardItem items = 1;
+    optional int64 status = 2;
+}
+
+//各種其他賽事部份
+message MatchUserItem
+{
+    optional int64 index = 1;       //排名
+    optional int64 uid = 2;
+    optional int64 hero_id = 3;
+    optional string name = 4;
+    optional int64 status = 5;
+    optional int64 level = 6;       //等级
+    optional int64 attack = 7;     //进攻实力
+    optional int64 defense = 8;     //防守实力
+    optional int64 target_money = 9;
+    optional int64 score = 10;
+    optional int64 type = 11;       //陌生人 1   好友  2
+    optional int64 guard = 12;      //对手的守护
+}
+
+//勢力賽
+message ForceMatch
+{
+    repeated MatchUserItem users = 1;       //每天多少个user
+    optional int64 process = 2;
+    optional int64 time_stamp = 3;
+    optional int64 rank = 4;
+    optional int64 score = 5;
+    optional int64 hero_id = 6;
+}
+
+//搶金賽
+message MoneyMatch
+{
+    repeated MatchUserItem users = 1;
+    optional int64 money_cd = 2;
+    optional int64 fresh_cd = 3;
+    optional int64 money = 4;
+    optional int64 lost_cd = 5;
+    optional int64 fighting_index = 6;
+    optional int64 share_money = 7;
+    optional int64 each_money = 8;
+    optional int64 target_money = 9;
+}
+
+//排名賽，比較特別
+message RankMatchUser
+{
+    optional int64 cd = 1;
+    optional int64 self_rank = 2;
+    optional int64 target_rank = 3;
+    optional int64 target_uid = 4;
+    optional int64 challenge_time = 5;
+    optional int64 highest_rank = 6;
+}
+
+message RankMatch           //用了index排名
+{
+    repeated MatchUserItem users = 1;
+}
+
+message Rank
+{
+    repeated MatchUserItem users = 1;
+    optional int64 self_rank = 2;
+    optional int64 self_score = 3;
+}
+
+message LadderMatch
+{
+    optional int64 score = 1;
+    optional int64 level = 2;
+    repeated int64 admire_users = 3;
+}
+
+
+//Map Part, 推图部分
+message MapItem
+{
+    optional int64 id = 1;
+    optional int64 status = 2;
+    optional int64 index = 3;
+    optional int64 id2 = 4;   //杯赛需要两只队伍
+}
+
+message NormalMap
+{
+    repeated MapItem games = 1;
+    optional int64 index = 2;
+    optional int64 id = 3;
+    optional int64 star = 4;
+    optional int64 exchange = 5;
+}
+
+message CupMap
+{
+    repeated MapItem games = 1;
+    optional string team_list = 2;
+    optional int64 round_index = 3;
+    optional int64 process = 4;
+    optional int64 finish = 5;
+    optional int64 lose = 6;
+}
+
+message MapUnit
+{
+    optional int64 id = 1;
+    optional int64 type = 2; //如果是杯赛，具体比赛直接在MapItem里，如果是联赛则需要再深入一层
+    repeated NormalMap normal_game = 3;
+    optional CupMap cup_game = 4;
+    optional int64 index = 5;
+}
+
+message Map
+{
+    optional int64 debug = 1;//no use
+    repeated MapUnit maps = 2;
+    optional int64 current_serial_index = 3;
+    optional int64 current_area_index = 4;
+    optional int64 current_game_index = 5;
+	optional int64 force = 6; //冗余数据，但是可以和user表解耦
+	optional int64 tmp_serial_index = 7;
+	optional int64 tmp_area_index = 8;
+	optional int64 tmp_game_index = 9;
+	optional int64 tmp_game_level = 10;
+	optional int64 finish = 11;
+}
+
+message FriendList
+{
+    repeated MatchUserItem friends = 1;
+}
+
+message MatchTactics
+{
+    repeated int64 tactic = 1;          //1进攻优先  2攻守平衡  3防守优先
+}
+
+message SinglesMatchField
+{
+    repeated MatchUserItem chapters = 1;    //球场的关卡
+    optional int64 index = 2;
+    optional int64 id = 3;
+    optional int64 status = 4;              //0未开始  1进行中  2已通过
+    repeated MultiRewardItem rewards = 5;        //奖励
+    optional int64 process = 6;             //斗牛赛关卡进度
+}
+
+message SinglesMatch
+{
+    repeated SinglesMatchField fields = 1;  //各个球场
+    optional int64 tickets = 2;             //斗牛卷
+    optional int64 timestamp = 3;           //
+    repeated RewardItem shops = 4;          //兑换商店里的物品
+}

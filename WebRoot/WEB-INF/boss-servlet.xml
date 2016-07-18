@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byName" default-lazy-init="true">
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>messages</value>
+		</property>
+	</bean>
+
+	<!-- =======================  定义视图  ======================== -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="prefix">
+			<value>/WEB-INF/page/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	<bean id="paramMethodResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="method" />
+	</bean>
+	<!-- 异常解析器，根据异常类型导航到对应的视图 -->
+	<bean id="exceptionResolver"
+		class="com.piggysnow.boss.exception.GzyExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">
+					errorPage/exception
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<import resource="classpath:/servlet-gm.xml"/>
+	<import resource="classpath:/servlet-web.xml"/>
+	<!-- =======================  请求拦截器  ======================== -->
+	<bean id="loginInterceptor"
+		class="com.piggysnow.boss.core.interceptor.LoginInterceptor">
+	</bean>
+	<bean id="frontInterceptor"
+		class="com.piggysnow.boss.core.interceptor.FrontInterceptor">
+	</bean>
+	
+	
+</beans>

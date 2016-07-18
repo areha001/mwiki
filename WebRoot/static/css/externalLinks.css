@@ -1,0 +1,265 @@
+@CHARSET "UTF-8";
+/*----------------------------------------
+Des: 通用链接样式
+Developed by: 可乐加糖
+Developer email:black.angel.liu@gmail.com
+Date Created:2009-10-25
+Last Updated:2009-10-25
+Copyright: 北京国之源
+----------------------------------------*/
+
+a[href^="http:"] {background: url(../images/elementsImages/externalLink.gif) no-repeat right top; padding-right:10px;}
+a[href^="http://www.xxx.com"], a[href^="http://xxx.com"] {background-image:none !important; padding-right:0px;}
+.exempt {background-image:none !important; padding:0px;}
+.external {background: url(../images/elementsImages/externalLink.gif) no-repeat right top; padding-right:10px;}
+a[href^="mailto:"] {background: url(../images/elementsImages/email_link.png) no-repeat right top; padding-right:22px; padding-bottom:5px;}
+a[href^="aim:"] {background: url(../images/elementsImages/group.png) no-repeat right top; padding-right:22px; padding-bottom:5px;}
+a[href$=".pdf"] {background: url(../images/elementsImages/page_pdf.png) no-repeat right top; padding-right:22px; padding-bottom:5px;}
+a[href$=".doc"] {background: url(../images/elementsImages/page_word.png) no-repeat right top; padding-right:22px; padding-bottom:5px;}
+a[href$=".rss"], a[href$=".rdf"] {background: url(../images/elementsImages/feed.png) no-repeat right top; padding-right:22px; padding-bottom:5px;}
+
+/* 删除按钮的标志 */
+.delete2{
+	background: url(../images/elementsImages/delete.png) no-repeat left center;
+	padding-left:25px;
+	margin-left:5px;
+}
+.delete{
+	background: url(../images/elementsImages/delete.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 查看按钮的标志 */
+.view{
+	background: url(../images/elementsImages/view.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 关闭活动按钮的标志
+.close{
+	background: url(../images/elementsImages/close.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+} */
+/* 开启活动按钮的标志 */
+.open{
+	background: url(../images/elementsImages/open.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 创建一个活动的标志 */
+.creactivity{
+	background: url(../images/elementsImages/activity.gif) no-repeat left center;
+	padding-left:12px;
+	padding-right:12px;
+	margin-left:5px;
+}
+/* 模版地址 */
+.model{
+	background: url(../images/elementsImages/model.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 申请加入 */
+.join{
+	background: url(../images/elementsImages/join.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 活动管理 */
+.manager{
+	background: url(../images/elementsImages/manager.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 活动创设 */
+.createactivity{
+	background: url(../images/elementsImages/createactivity.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 修改 */
+.update2{
+	background: url(../images/elementsImages/update.png) no-repeat left center;
+	padding-left:25px;
+	margin-left:5px;
+}
+.update{
+	background: url(../images/elementsImages/update.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 上移 */
+.up2{
+	background: url(../images/elementsImages/up.png) no-repeat left center;
+	padding-left:25px;
+	margin-left:5px;
+}
+.up{
+	background: url(../images/elementsImages/up.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 问号 */
+.question{
+	background: url(../images/elementsImages/question.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 活动开展 */
+.activiting{
+	background: url(../images/elementsImages/activiting.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+.reporting {
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent url(../images/elementsImages/report.gif) no-repeat scroll left center;
+	margin-left:5px;
+	padding-left:12px;
+}
+/* 下移*/
+.down2{ 
+	background: url(../images/elementsImages/down.png) no-repeat left center;
+	padding-left:25px;
+	margin-left:5px;
+}
+.down{ 
+	background: url(../images/elementsImages/down.gif) no-repeat left center;
+	padding-left:12px;
+	margin-left:5px;
+}
+/* 留言 */
+.message{
+	background: url(../images/elementsImages/message.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+/* 邀请 */
+.invite{
+	background: url(../images/elementsImages/Invite.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+/* 接受 */
+.access{
+	background: url(../images/elementsImages/access.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+/* 移除 */
+.remove{
+	background: url(../images/elementsImages/remove.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+/* 添加一个新的对象 */
+.addnew2{
+	background: url(../images/elementsImages/persionlinkleft.png) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+.addnew{
+	background: url(../images/elementsImages/persionlinkleft.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+/* 发送消息 */
+.sendmessage{
+	background: url(../images/elementsImages/sendemail.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+/* 发送消息改 */
+.sendmessageg{
+	background: url(../images/elementsImages/sendemail2.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+/* 发送消息鼠标划过的样式 */
+.sendmessage:hover{
+	background: url(../images/elementsImages/sendemail2.gif) no-repeat left center;
+}
+
+.sendim{
+	background: url(../images/elementsImages/sendim.gif) no-repeat left center;
+	padding-left:14px;
+	margin-left:5px;
+}
+.sendim:hover{
+	background: url(../images/elementsImages/sendim12.gif) no-repeat left center;
+}
+/* 个人空间：添加好友通知，加入活动通知，活动审批通知 */
+.myaddfriend{
+	background: url(../images/elementsImages/myspace-addfriend.gif) no-repeat left center;
+	padding-left:20px;
+	height:19px;
+	line-height:19px;
+	
+}
+.joinactivity{
+	background: url(../images/elementsImages/myspace-joinactivity.gif) no-repeat left center;
+	padding-left:20px;
+	height:19px;
+	line-height:19px;
+	
+}
+.alloweractivity{
+	background: url(../images/elementsImages/myspace-alloweractivity.gif) no-repeat left top;
+	padding-left:20px;
+	line-heigth:20px;
+}
+
+/* 大界面上的发送消息的样式 */
+.sendmessage2{
+	background: url(../images/sendmessage2.gif) no-repeat left center;
+	padding-left:20px;
+	height:19px;
+	line-height:19px;
+}
+.hasmessage{
+	background: url(../images/newpm.gif) no-repeat left center;
+	padding-left:20px;
+	height:19px;
+	line-height:19px;
+}
+.addfriend{
+	background: url(../images/addfriend.gif) no-repeat left center;
+	padding-left:20px;
+	height:19px;
+	line-height:19px;
+}
+/* 过滤 */
+.filter{
+	background: url(../images/arrow-right.gif) no-repeat left center;
+	padding-left:20px;
+	height:19px;
+	line-height:19px;
+}
+
+/* 字体颜色
+ --------------------------------------------------*/
+.red{
+	color:#ff0000!important;
+}
+.blue{
+	color:#04649d!important;
+}
+.sky{
+	color:#02569f!important;
+}
+.green{
+	color:#5d6f0b!important;
+}
+ /* 暗红色 */
+.FF065F{
+	color:#FF065F!important;
+}
+.pink{
+	color:#fe0257!important;
+}
+.dark{
+	color:#606060!important;
+}

@@ -1,0 +1,23 @@
+<%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@include file="taglibs.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv=content-type content="text/html; charset=utf-8"/> 
+	<title>课程管理</title>
+	<link href="../js/ext-3.3.1/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
+	<link href="../js/ext-3.3.1/resources/css/xtheme-gray.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/ext-3.3.1/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="../js/ext-3.3.1/ext-all.js"></script>
+	<script type="text/javascript" src="js/managerCourse.js"></script>
+</head>
+<body>
+<input type="hidden" id="clazzid" value="${clazzid}" />
+<input type="hidden" id="grade" value="${grade}" /><!-- 年级名称 -->
+<input type="hidden" id="clazzname" value="${clazzname}" /><!-- 班级名称 -->
+
+<input type="hidden" id="clazzCourseid" value="${clazzCourseid}" /><!--  var clazzCourseid = records[0].id;//在页面上选择的要修改的（课程）记录的ID -->
+
+ <input type="hidden" id="termInfoId" value="${termInfoId}" />
+</body>
+</html>
