@@ -16,7 +16,7 @@
 	<mvc:interceptors>
 	  <mvc:interceptor>
 	   <!-- 默认所有的请求都进行拦截 -->
-	   <mvc:mapping path="/*"/>
+	   <mvc:mapping path="/**"/>
 	   <bean class="com.piggysnow.boss.core.interceptor.FrontInterceptor"></bean>
 	  </mvc:interceptor>
 	</mvc:interceptors>

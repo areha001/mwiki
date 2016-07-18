@@ -92,7 +92,7 @@ h6
 
 ul
 {
-	margin-left:25px;
+	padding-left:25px;
 	list-style-type:none;
 }
 
@@ -178,7 +178,6 @@ p.last		{margin-bottom:0px;}
 #footer
 {
 	background:url('../images/footer.gif') left top no-repeat;
-	width:950px;
 	height:36px;
 	margin-top:10px; 
 }
@@ -407,10 +406,8 @@ p.last		{margin-bottom:0px;}
 #footer
 {
 	border-top:1px solid #e1e9ef;
-	width:960px;
-	margin-top:20px;  /* 修复了在IE下顶编剧的问题 */
+	margin:20px auto 0 auto;
 	height:50px;
-	float:left; /* 在IE下部分页面没有浮动，宽度显示就不正确 */
 }
 #footer p{
 	color:#ccc;

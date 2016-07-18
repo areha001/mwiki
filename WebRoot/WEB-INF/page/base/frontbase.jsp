@@ -7,13 +7,15 @@
 		<%@include file="/WEB-INF/page/common/front-css.jsp"%>
 	</head>  
   <body>
+  <div id="cleartop">
+  </div>
 	<%@include file="/WEB-INF/page/common/top.jsp"%>
   <div id="">
   </div>
+  <div id="m_left">
+	<%@include file="/WEB-INF/page/left/nav.jsp"%>
+  </div>
   <div id="main">
-	  <div id="m_left">
-		<%@include file="/WEB-INF/page/left/nav.jsp"%>
-	  </div>
 	  <div id="m_right">
 		  <div class="container">
 				<% String urlPath = "/WEB-INF/page/" + request.getAttribute("subViewName") + ".jsp";%>

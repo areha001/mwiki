@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.piggysnow.boss.core.domain.Tag;
 import com.piggysnow.boss.core.services.TagService;
+import com.piggysnow.boss.utils.MyModelAndView;
 
 @Controller
 @RequestMapping("/tag") 
@@ -27,7 +28,7 @@ public class TagController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 
 		System.out.println("werewrwerwerwrwer");
-		ModelAndView mav = new ModelAndView("tag/list");
+		ModelAndView mav = new MyModelAndView("tag/list");
 		List<Tag> tags = tagService.getAll();
 		mav.addObject("list", tags);
 		return mav;
