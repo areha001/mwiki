@@ -5,7 +5,7 @@
 #main{clear:both;}
 html,body{height:100%;margin:0;padding:0;}
 body{position:relative;height:100%;margin:0;padding:0;}
-body{background: url('../images/front/banner.jpg') no-repeat scroll left top}
+body{background: url('../images/front/banner.gif') no-repeat scroll left top}
 .clear{height:1px;width:1px;clear:both;}
 #cleartop{height:1px;width:1px;}
 #topx{width:300px; background:rgba(255, 255, 255, 0.6);position:absolute;z-index:1;
