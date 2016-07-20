@@ -1,6 +1,6 @@
 html,body{height:100%;margin:0;padding:0;}
 body{position:relative;height:100%;margin:0;padding:0;}
-body{background: url('../images/front/banner.gif') no-repeat scroll left top}
+body{background: url('../images/front/banner.gif') no-repeat scroll left top #fdfdfd;}
 
 #m_left div.vertical_nav ul{padding-left:40px;}
 #m_left div.vertical_nav li{text-align:left;padding-bottom:5px;}
@@ -22,10 +22,23 @@ border:1px solid #cff; border-bottom:none;border-radius: 3px;}
 
 
 a.more{color:#66e;text-shadow:3px 3px 3px #ccccFF;}
-div.item_p_more{position:absolute;right:50px;bottom:5px;}
+span.item_p_more{right:50px;}
 div.item_p_more a{margin-right:50px;}
+
+div.item_p h2 a{text-indent:-50px;}
+
+.vitem div.item_other{margin-left:300px;}
+.vitem div.item_p{min-height:330px;}
+.vitem div.item_pic{float:left;margin-left:20px;margin-top:20px;}
+
+
+.hitem div.item_p{min-height:250px;}
+.hitem div.item_pic{position:absolute;left:0px;top:20px;}
+.hitem div.item_other{margin-left:300px;}
+
 #main{clear:both;}
 .item{padding:3px 5px;position:relative;}
 .item_one{border-bottom:1px dashed #ccc ;margin:3px 25px;}
-.create_info{color:#dbb;text-indent:-100px;padding-top:5px;}
-.item_bottom{height:25px;}
+.create_info{color:#dbb;margin-right:100px;}
+.item_bottom{position:absolute;bottom:10px;right:25px;}
+.item_p .before_bottom{height:30px;clear:both;}
