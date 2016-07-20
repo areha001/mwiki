@@ -110,7 +110,10 @@ public class Item extends BaseEntity{
 	public void setCreator(long creator) {
 		this.creator = creator;
 	}
-	
+	public String getCreatorName()
+	{
+		return "Admin";
+	}
 	
 	
 }

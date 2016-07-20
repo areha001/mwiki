@@ -4,5 +4,6 @@
 <div class="vertical_nav">
 <ul>
 	<li><a href="<c:url value='/'/>">首页</a></li>
+	<li><a href="<c:url value='/'/>">最近更新</a></li>
 </ul>
 </div>
