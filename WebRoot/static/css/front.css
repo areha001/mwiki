@@ -1,8 +1,13 @@
 #m_left div.vertical_nav ul{padding-left:40px;}
 #m_left div.vertical_nav li{text-align:left;}
-#m_left div.vertical_nav li a { color:#66e;}
+#m_left div.vertical_nav li a {font-size:120%;color:#66e;text-shadow:3px 3px 3px #c2c2FF;}
+a.more{color:#66e;text-shadow:3px 3px 3px #ccccFF;}
+p.item_p_more{text-align:right;}
+p.item_p_more a{margin-right:50px;}
 #m_left{position:absolute; z-index:1; top:320px;width:170px; }
 #main{clear:both;}
+.item{padding:3px 5px;}
+.item_one{border-bottom:1px dashed #ccc ;margin:3px 25px;}
 html,body{height:100%;margin:0;padding:0;}
 body{position:relative;height:100%;margin:0;padding:0;}
 body{background: url('../images/front/banner.gif') no-repeat scroll left top}
