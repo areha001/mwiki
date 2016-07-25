@@ -14,14 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.piggysnow.boss.core.domain.Item;
 import com.piggysnow.boss.core.services.ItemService;
+import com.piggysnow.boss.core.services.TagService;
 import com.piggysnow.boss.utils.MyModelAndView;
 
 @Controller
 @RequestMapping()
 public class ItemController{
-	
+
 	@Resource
 	ItemService itemService;
+	@Resource
+	TagService tagService;
 	
 	@RequestMapping(value="/item/new",method=RequestMethod.GET) 
 	public ModelAndView main(HttpServletRequest request,
@@ -39,12 +42,23 @@ public class ItemController{
 		
 		String name = request.getParameter("name");
 		String content = request.getParameter("content");
+		String tagsStr = request.getParameter("tags");
 		
 		item.setName(name);
 		item.setContent(content);
 		item.setCreateTime(new Date());
+		item.setTags(tagsStr);
+		
 		item.setCreator(1L);
+		
 		itemService.save(item);
+
+		String[] tags = tagsStr.trim().split(",");
+		if(tags.length > 0)
+		{
+			tagService.bindItemAndInit(item, tags);
+		}
+		
 		response.sendRedirect(request.getContextPath());
 		return null;
 	}

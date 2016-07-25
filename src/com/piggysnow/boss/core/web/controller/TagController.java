@@ -34,4 +34,26 @@ public class TagController extends MultiActionController {
 		return mav;
 	}
 	
+
+	@RequestMapping(method=RequestMethod.GET) 
+	public ModelAndView add(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		ModelAndView mav = new MyModelAndView("tag/add");
+		List<Tag> tags = tagService.getAll();
+		mav.addObject("list", tags);
+		return mav;
+	}
+	
+	@RequestMapping(method=RequestMethod.POST) 
+	public ModelAndView create(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		ModelAndView mav = new MyModelAndView("tag/list");
+		List<Tag> tags = tagService.getAll();
+		mav.addObject("list", tags);
+		return mav;
+	}
+	
+	
 }

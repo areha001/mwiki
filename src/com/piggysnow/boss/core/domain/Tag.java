@@ -24,7 +24,7 @@ public class Tag extends BaseEntity{
 	 * 角色名
 	 */
 	@Column
-	private String group;
+	private String groupName;
 	/**
 	 * 角色名
 	 */
@@ -56,11 +56,11 @@ public class Tag extends BaseEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getGroup() {
-		return group;
+	public String getGroupName() {
+		return groupName;
 	}
-	public void setGroup(String group) {
-		this.group = group;
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
 	}
 	public long getCreator() {
 		return creator;

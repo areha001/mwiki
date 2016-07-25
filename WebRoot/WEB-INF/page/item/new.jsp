@@ -9,6 +9,7 @@
   	<form action="<c:url value='/item/add'/>" method="post">
 		<p>title: <input type="text" name="name" /></p>
 		<p>body: <textarea name="content" ></textarea></p>
+		<p>TAG:<input type="text" name="tags" /></p>
 		<p><input type="submit" value="dd"/></p>
 	</form>
   </body>
