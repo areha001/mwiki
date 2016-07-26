@@ -36,9 +36,11 @@ div.item_p h2 a{text-indent:-50px;}
 .hitem div.item_pic{position:absolute;left:0px;top:20px;}
 .hitem div.item_other{margin-left:300px;}
 
-#main{clear:both;}
+#main{clear:both; min-height:500px;}
 .item{padding:3px 5px;position:relative;}
 .item_one{border-bottom:1px dashed #ccc ;margin:3px 25px;}
 .create_info{color:#dbb;margin-right:100px;}
 .item_bottom{position:absolute;bottom:10px;right:25px;}
 .item_p .before_bottom{height:30px;clear:both;}
+
+#cke_description{margin:10px 50px;}

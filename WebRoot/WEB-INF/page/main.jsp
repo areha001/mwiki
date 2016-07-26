@@ -11,7 +11,7 @@
  		
  		<div class="item item_one ${vv.index % 3 == 2? 'hitem' : 'vitem'}" id="item_${i.id }">
  			<c:set var="k" value="${vv.index % 3 == 2? '2' : '1'}"/>
-	  		<div class="item_pic item_p"><img src="<c:url value='/static/images/front/test${k }.jpg'/>" /></div>
+	  		<div class="item_pic item_p"><a href="<c:url value='/item/${i.id }'/>"><img src="<c:url value='/static/images/front/test${k }.jpg'/>" /></a></div>
 	  		<div class="item_other item_p">
 	  			<h2><a href="<c:url value='/item/${i.id }'/>">${i.name } </a></h2>
 		  		<div class="item_content"><c:out value="${i.content }" escapeXml="true"/></div>
