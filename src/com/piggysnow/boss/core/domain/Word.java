@@ -104,5 +104,8 @@ public class Word extends BaseEntity{
 		this.description = description;
 	}
 	
-	
+	public String getCreatorName()
+	{
+		return "Admin";
+	}
 }

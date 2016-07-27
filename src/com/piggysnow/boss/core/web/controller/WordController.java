@@ -24,8 +24,8 @@ public class WordController extends MultiActionController {
 	
 	@Resource
 	private WordService wordService;
-	
-	@RequestMapping(method=RequestMethod.GET) 
+
+	@RequestMapping(value="/list",method=RequestMethod.GET) 
 	public ModelAndView index(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 

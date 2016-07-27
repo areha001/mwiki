@@ -2,7 +2,7 @@
 <%@include file="/WEB-INF/page/common/taglibs.jsp"%>
 <div class="bf_container_nav">
 <ul>
-<li class="normal">最近更新</li>
+<li class="normal"><a href="<c:url value='/'/>">首页</a></li>
 <li class="last"></li>
 </ul>
 </div>
