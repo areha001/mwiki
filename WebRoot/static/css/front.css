@@ -6,6 +6,8 @@ body{background: url('../images/front/banner.gif') no-repeat scroll left top #fd
 #m_left div.vertical_nav li{text-align:left;padding-bottom:5px;}
 #m_left div.vertical_nav li a {font-size:120%;color:#66e;text-shadow:3px 3px 3px #c2c2FF;}
 #m_left{position:absolute; z-index:1; top:320px;width:170px; }
+#m_left .nav_split{text-align:left;}
+#m_left .nav_split span{font-size:120%;color:#33a;text-shadow:3px 3px 3px #c2c2FF;padding-left:25px;}
 
 .clear{height:1px;width:1px;clear:both;}
 #cleartop{height:1px;width:1px;}
@@ -15,7 +17,7 @@ right:60px;padding-top:15px;width:300px;}
 #m_right{margin-left:170px;margin-top:130px;margin-right:10px; background:rgba(255, 255, 255, 0.8);
 border:1px solid #ccc;border-radius: 10px;position:relative;}
 .bf_container_nav ul {position:absolute;top:-36px;}
-.bf_container_nav ul li.normal{float:left;padding:5px;background:rgba(245, 245, 245, 0.8);
+.bf_container_nav ul li.normal{float:left;padding:5px 10px ;background:rgba(245, 245, 245, 0.8);
 border:1px solid #cff; border-bottom:none;border-radius: 3px;}
 .bf_container_nav ul li.last{float:none;clear:both;width:1px;}
 
@@ -36,9 +38,11 @@ div.item_p h2 a{text-indent:-50px;}
 .hitem div.item_pic{position:absolute;left:0px;top:20px;}
 .hitem div.item_other{margin-left:300px;}
 
-#main{clear:both;}
+#main{clear:both; min-height:500px;}
 .item{padding:3px 5px;position:relative;}
 .item_one{border-bottom:1px dashed #ccc ;margin:3px 25px;}
 .create_info{color:#dbb;margin-right:100px;}
 .item_bottom{position:absolute;bottom:10px;right:25px;}
 .item_p .before_bottom{height:30px;clear:both;}
+
+#cke_description{margin:10px 50px;}
