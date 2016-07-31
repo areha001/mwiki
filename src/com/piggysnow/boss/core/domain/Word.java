@@ -54,7 +54,7 @@ public class Word extends BaseEntity{
 	 * 描述 
 	 */
 	@Column
-	private String description;
+	private String parentName;
 	public String getName() {
 		return name;
 	}
@@ -97,13 +97,13 @@ public class Word extends BaseEntity{
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	
+	public String getParentName() {
+		return parentName;
+	}
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
+	}
 	public String getCreatorName()
 	{
 		return "Admin";

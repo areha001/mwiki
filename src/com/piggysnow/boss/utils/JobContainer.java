@@ -13,7 +13,9 @@ public class JobContainer extends MultiActionController {
 	public static interface Job { public Runnable getRunnable();}
 	static Thread jobThread;
 	static List<Job> list = new ArrayList<Job>();
+	
 	public static void init(){
+		/*
 		jobThread = new Thread(){
 			public void run(){
 				try{
@@ -29,7 +31,7 @@ public class JobContainer extends MultiActionController {
 				}
 			}
 		};
-		jobThread.start();
+		jobThread.start();*/
 	}
 	public static void addJob(Job j){
 		list.add(j);
