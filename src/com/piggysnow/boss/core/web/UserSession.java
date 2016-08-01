@@ -126,6 +126,11 @@ public class UserSession implements Serializable {
 
 
 	public User getUser() {
+		if(user==null)
+		{
+			user = new User();
+			user.setId(1L);
+		}
 		return user;
 	}
 

@@ -19,6 +19,7 @@ import com.piggysnow.boss.core.domain.Word;
 import com.piggysnow.boss.core.domain.WordHistory;
 import com.piggysnow.boss.core.services.WordHistoryService;
 import com.piggysnow.boss.core.services.WordService;
+import com.piggysnow.boss.core.web.UserSession;
 import com.piggysnow.boss.utils.FlashMessage;
 import com.piggysnow.boss.utils.MyModelAndView;
 
@@ -91,21 +92,42 @@ public class WordController extends MultiActionController {
 	public ModelAndView editSave(HttpServletRequest request,
 			HttpServletResponse response, @PathVariable String name) throws Exception {
 
-		MyModelAndView mav = new MyModelAndView("word/edit");
-		mav.addObject("name", name);
-		WordHistory w = wordHistoryService.findWord(name);
-		mav.addObject("wordHistory", w);
+		int version = 1;
+		WordHistory wo = wordHistoryService.findWord(name);
+		if(wo!=null)
+		{
+			wo.setStatus(WordHistory.ACTIVE_OLD);
+			wordHistoryService.save(wo);
+			version = wo.getVersion() + 1;
+		}
+		WordHistory w = new WordHistory();
+		w.setName(name);
+		w.setStatus(WordHistory.ACTIVE_STATUS);
+		w.setCreator(UserSession.get(request).getUser().getId());
+		
+		String description = request.getParameter("description");
+		description = description.replaceAll("<iframe", "&lt;iframe").replaceAll("<script", "&lt;script")
+				.replaceAll("onload", "");
+		w.setDescription(description);
+		w.setVersion(version);
+		w.setGroupName("");
+		wordHistoryService.save(w);
+		
 		FlashMessage.store(request, "保存成功，请等待管理人员审核");
-		return mav;
+		response.sendRedirect(request.getContextPath() + "/word/" + URLEncoder.encode(name, "utf-8"));
+		return null;
+		
 	}
 
-	@RequestMapping(value="/{name}",method=RequestMethod.GET) 
+	@RequestMapping(value="/{name:.*}",method=RequestMethod.GET) 
 	public ModelAndView view(HttpServletRequest request,
 			HttpServletResponse response, @PathVariable String name) throws Exception {
 
 		MyModelAndView mav = new MyModelAndView("word/show");
 		Word word = wordService.findOne("from Word where name = ? ", name);
+		WordHistory wh = wordHistoryService.findWord(name);
 		mav.addObject("word", word);
+		mav.addObject("wh", wh);
 		return mav;
 	}
 }

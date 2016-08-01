@@ -3,7 +3,8 @@
 <div class="bf_container_nav">
 <ul>
 <li class="normal"><a href="<c:url value='/'/>">首页</a></li>
-<li class="normal"><a href="<c:url value='/'/>">常用词表</a></li>
+<li class="normal"><a href="<c:url value='/word/list'/>">词条</a></li>
+<li class="normal"><a href="<c:url value='/word/list'/>">常用词表</a></li>
 <li class="last"></li>
 </ul>
 </div>
@@ -21,7 +22,7 @@
 			<h3>最新词条</h3>
 			<div class="word_info" id="latest_word">
  				<c:forEach var="i" items="${list }" varStatus="vv">
-					<a href="">${i.name }</a>
+					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
 				</c:forEach>
 			</div>
 		</div>
@@ -32,7 +33,7 @@
 			<h3>店铺名称</h3>
 			<div class="word_info">
  				<c:forEach var="i" items="${list }" varStatus="vv">
-					<a href="">${i.name }</a>
+					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
 				</c:forEach>
 			</div>
 		</div>
@@ -40,7 +41,7 @@
 			<h3>柄图简称</h3>
 			<div class="word_info">
  				<c:forEach var="i" items="${list }" varStatus="vv">
-					<a href="">${i.name }</a>
+					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
 				</c:forEach>
 			</div>
 		</div>
@@ -48,7 +49,7 @@
 			<h3>版型与风格</h3>
 			<div class="word_info">
  				<c:forEach var="i" items="${list }" varStatus="vv">
-					<a href="">${i.name }</a>
+					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
 				</c:forEach>
 			</div>
 		</div>
