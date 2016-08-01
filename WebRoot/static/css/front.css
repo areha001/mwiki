@@ -8,6 +8,15 @@ body{background: url('../images/front/banner.gif') no-repeat scroll left top #fd
 #m_left{position:absolute; z-index:1; top:320px;width:170px; }
 #m_left .nav_split{text-align:left;}
 #m_left .nav_split span{font-size:120%;color:#33a;text-shadow:3px 3px 3px #c2c2FF;padding-left:25px;}
+.top_left{width:61%;}
+.top_right{width:37%;}
+.page_bottom{height:25px!important;}
+
+.itemw30{width:32%;margin-right:1%;}
+#word_top{padding:5px 15px;}
+#word_top h3{background:#deede0; color:#228b22;padding:15px;}
+#word_top a{font-size:120%;}
+#word_top #latest_word a{padding:5px ; line-height:1.8em; word-break:no-break;}
 
 .clear{height:1px;width:1px;clear:both;}
 #cleartop{height:1px;width:1px;}
