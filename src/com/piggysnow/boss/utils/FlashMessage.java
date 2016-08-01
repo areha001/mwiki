@@ -31,6 +31,7 @@ public class FlashMessage implements Serializable{
 
 	public Object getMsg() {
 		Object temp = msg;
+		System.out.println(msg);
 		msg = null;
 		return temp;
 	}

@@ -15,6 +15,7 @@ import com.wds.base.dao.BaseEntity;
 @Table(name="t_word_history")
 public class WordHistory extends BaseEntity{
 
+	public static final int ACTIVE_STATUS = 2;
 	/**
 	 * 角色名
 	 */

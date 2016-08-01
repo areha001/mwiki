@@ -480,16 +480,6 @@ p.post_bottom_panel{
 	width:100%;
 	margin-top:10px;
 }
-/*--按钮样式--*/
-input.submit { 	
-	width:77px!important;
-	height:23px;
-	background:url(../images/submit.gif) left center no-repeat;
-	border:none;
-	font-size:12px;
-	font-weight:bold;
-	color:#fff;
-}
 input.submit01{
 	width:100px;
 	height:23px;
@@ -585,3 +575,6 @@ fieldset.attach_fieldset{border:solid 1px #ddd; width:480px; padding: 0px 10px ;
 }
 
 .ml30{margin-left:30px;}
+.ta_center{text-align:center!important;}
+.ui-menu .ui-menu-item-wrapper {font-size:120%;line-height:2em;}
+.bottom_tips{position:fixed;bottom:0;height:35px;background:#8ef499;color:#width:100%;color:#36823E;width:100%;line-height:35px;font-size:150%;}
