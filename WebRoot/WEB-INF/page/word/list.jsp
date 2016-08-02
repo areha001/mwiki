@@ -46,7 +46,7 @@
 			</div>
 		</div>
 		<div class="left itemw30">
-			<h3>版型与风格</h3>
+			<h3>常用词语</h3>
 			<div class="word_info">
  				<c:forEach var="i" items="${list }" varStatus="vv">
 					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
