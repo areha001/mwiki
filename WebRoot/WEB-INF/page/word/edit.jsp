@@ -5,7 +5,7 @@
 <div class="bf_container_nav">
 <ul>
 <li class="normal"><a href="<c:url value='/'/>">首页</a></li>
-<li class="normal"><a href="<c:url value='/word'/>">词条</a></li>
+<li class="normal"><a href="<c:url value='/word/list'/>">Lolita词条</a></li>
 <li class="normal"><a href="">编辑词条内容</a></li>
 <li class="last"></li>
 </ul>

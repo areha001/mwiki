@@ -4,8 +4,8 @@
 <div class="bf_container_nav">
 <ul>
 <li class="normal"><a href="<c:url value='/'/>">首页</a></li>
-<li class="normal"><a href="<c:url value='/word'/>">词条</a></li>
-<li class="normal"><a href="">${word.name }</a></li>
+<li class="normal"><a href="<c:url value='/word/list'/>">Lolita词条</a></li>
+<li class="normal"><a href="">词条内容</a></li>
 <li class="last"></li>
 </ul>
 </div>
@@ -30,9 +30,9 @@
 					<dt>词条统计</dt>
 					<dd>
 						<ul>
-							<li><span>访问次数：</span>100 次</li>
-							<li><span>编辑次数：</span>2 次</li>
-							<li><span>最近更新：</span>2016-08-12</li>
+							<li><span>访问次数：</span>${visitCount.visitCount } 次</li>
+							<li><span>编辑次数：</span>${visitCount.editCount } 次</li>
+							<li><span>最近更新：</span><fmt:formatDate value="${word.editTime }" pattern="yyyy-MM-dd" /></li>
 							<li><span>最近编辑：</span>${word.creatorName }</li>
 							<li><span>创建者：</span>${word.creatorName }</li>
 						</ul>
