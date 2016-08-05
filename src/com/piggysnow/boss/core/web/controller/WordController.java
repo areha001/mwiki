@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+import com.piggysnow.boss.core.domain.VisitCount;
 import com.piggysnow.boss.core.domain.Word;
 import com.piggysnow.boss.core.domain.WordHistory;
+import com.piggysnow.boss.core.services.VisitCountService;
 import com.piggysnow.boss.core.services.WordHistoryService;
 import com.piggysnow.boss.core.services.WordService;
 import com.piggysnow.boss.core.web.UserSession;
@@ -27,10 +29,14 @@ import com.piggysnow.boss.utils.MyModelAndView;
 @RequestMapping("/word") 
 public class WordController extends MultiActionController {
 
+	public static final String MOUDLE = "word";
 	@Resource
 	private WordService wordService;
 	@Resource
 	private WordHistoryService wordHistoryService;
+	@Resource
+	private VisitCountService visitCountService;
+	
 
 	@RequestMapping(value="/list",method=RequestMethod.GET) 
 	public ModelAndView index(HttpServletRequest request,
@@ -112,6 +118,9 @@ public class WordController extends MultiActionController {
 		w.setVersion(version);
 		w.setGroupName("");
 		wordHistoryService.save(w);
+
+		visitCountService.findAndEdit(MOUDLE, name);
+		
 		
 		FlashMessage.store(request, "保存成功，请等待管理人员审核");
 		response.sendRedirect(request.getContextPath() + "/word/" + URLEncoder.encode(name, "utf-8"));
@@ -128,6 +137,9 @@ public class WordController extends MultiActionController {
 		WordHistory wh = wordHistoryService.findWord(name);
 		mav.addObject("word", word);
 		mav.addObject("wh", wh);
+		
+		VisitCount visitCount = visitCountService.findAndVisit(MOUDLE, name);
+		mav.addObject("visitCount", visitCount);
 		return mav;
 	}
 }

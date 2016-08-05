@@ -79,5 +79,8 @@ div.item_p h2 a{text-indent:-50px;}
 #word_analyze ul,#word_analyze li,#word_analyze dd{margin:0;padding:0;line-height:1.7em;}
 #word_analyze li span{color:#555;}
 #word_category{color:#777;text-align:left;padding-bottom:25px;}
-#word_category a:link,#word_category a:visited{color:#3366FF;}
+a.innerlink:link, a.innerlink:visited{color:#3366FF!important; font-weight:bold;}
 #word_category span.word_elem{display:in-line;padding-right:40px;padding-top:5px;}
+
+div.edit_this{position:absolute;right:40px;top:40px;}
+div.edit_this a{padding-left:25px;font-size:120%;background:url('../ckeditor/plugins/icons.png') no-repeat;background-position:0 -312px;background-size:auto;}

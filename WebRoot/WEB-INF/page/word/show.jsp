@@ -12,18 +12,19 @@
 <div class="container">
 	<div id="word_content">
 		<h1 class="word_title">${word.name }</h1>
+		<div class="edit_this"><a href="<c:url value='/word/edit/${word.name }'/>">编辑此词条</a></div>
 		<div class="">
 			<div class="word_description_wrapper">
 				<div id="word_category">
-					<span class="word_elem">上级词条：<a href="<c:url value='/word/${word.parentName }'/>">${word.parentName }</a></span>
-					<span class="word_elem">所属分类：<a href="<c:url value='/word/${word.groupName }'/>">${word.groupName }</a></span>
+					<span class="word_elem">上级词条：<a class="innerlink" href="<c:url value='/word/${word.parentName }'/>">${word.parentName }</a></span>
+					<span class="word_elem">所属分类：<a class="innerlink"  href="<c:url value='/word/${word.groupName }'/>">${word.groupName }</a></span>
 				</div>
 				<c:if test="${empty wh }">
 					<div class="no_word_tips"><span>很报歉，这个词条尚未完善，暂时还没有内容，您可以<a href="<c:url value='/word/edit/${word.name }'/>" class="click_here">点击这里</a>投稿</span></div>
 				</c:if>
 				<c:if test="${!empty wh }">
 						<div class="word_desc">
-							${wh.description }
+							${wh.descriptionExtra }
 						</div>
 				</c:if>
 				<dl id="word_analyze">

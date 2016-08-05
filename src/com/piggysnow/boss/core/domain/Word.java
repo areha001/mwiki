@@ -55,6 +55,11 @@ public class Word extends BaseEntity{
 	 */
 	@Column
 	private String parentName;
+	/**
+	 * 编辑时间
+	 */
+	@Column
+	private Date editTime;
 	public String getName() {
 		return name;
 	}
@@ -107,5 +112,11 @@ public class Word extends BaseEntity{
 	public String getCreatorName()
 	{
 		return "Admin";
+	}
+	public Date getEditTime() {
+		return editTime;
+	}
+	public void setEditTime(Date editTime) {
+		this.editTime = editTime;
 	}
 }

@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.piggysnow.boss.core.services.DictService;
+import com.piggysnow.boss.core.web.admin.controller.StaticServiceController;
 import com.wds.base.dao.BaseEntity;
 
 /**
@@ -96,4 +98,18 @@ public class WordHistory extends BaseEntity{
 	}
 	
 	
+	public String getDescriptionExtra()
+	{
+		String k = description.replaceAll("\\[link(word|item) (.*)\\]", "<a class=\"innerlink\" href=\"" + StaticServiceController.getDictService().getDictInfo(SITE_PATH, 1) + "/$1/$2" +  "\">$2</a>");;
+		return k;
+	}
+	
+	public static String SITE_PATH = "SITE_PATH";
+	
+	public static void main(String...strings)
+	{
+		String description= "<sdfsdf>[linkword sdfsdfsdf]awgawegaweg</sdfsdf>[linkitem sfsadfsfsdf]wagwegwagwagweg[linkewrtwe awgaw]";
+		String k = description.replaceAll("\\[link(word|item) (.*?)\\]", "<a class=\"innerlink\" href=\"" + "dd"+ "/$1/$2" +  "\">$2</a>");
+		System.out.println(k);
+	}
 }

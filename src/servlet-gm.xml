@@ -109,10 +109,6 @@
 		class="com.piggysnow.boss.core.web.admin.controller.RechargeQueryController">
 		<property name="methodNameResolver" ref="paramMethodResolver" />
 	</bean>
-	<bean id="userRetentionController"
-		class="com.piggysnow.boss.core.web.admin.controller.UserRetentionController">
-		<property name="methodNameResolver" ref="paramMethodResolver" />
-	</bean>
 	<bean id="newAndActiveController"
 		class="com.piggysnow.boss.core.web.admin.controller.NewAndActiveController">
 		<property name="methodNameResolver" ref="paramMethodResolver" />
