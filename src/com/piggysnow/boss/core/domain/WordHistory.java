@@ -100,7 +100,7 @@ public class WordHistory extends BaseEntity{
 	
 	public String getDescriptionExtra()
 	{
-		String k = description.replaceAll("\\[link(word|item) (.*)\\]", "<a class=\"innerlink\" href=\"" + StaticServiceController.getDictService().getDictInfo(SITE_PATH, 1) + "/$1/$2" +  "\">$2</a>");;
+		String k = description.replaceAll("\\[link(word|item) (.*?)\\]", "<a class=\"innerlink\" href=\"" + StaticServiceController.getDictService().getDictInfo(SITE_PATH, 1) + "/$1/$2" +  "\">$2</a>");;
 		return k;
 	}
 	

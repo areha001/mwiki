@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html" pageEncoding="utf-8"%>
 <%@include file="../admin/taglibs.jsp"%>
 <script src="<c:url value='/static/ckeditor/ckeditor.js'/>"></script>
-<script src="<c:url value='/static/js/jquery-ui/external/jquery/jquery.js'/>"></script>
 <script src="<c:url value='/static/js/jquery-ui/jquery-ui.min.js'/>"></script>
 <link href="<c:url value='/static/js/jquery-ui/jquery-ui.min.css'/>" rel="stylesheet" type="text/css" />
 

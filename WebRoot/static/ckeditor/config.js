@@ -35,4 +35,28 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
+	
 };
+CKEDITOR.myExtend={};
+
+CKEDITOR.myExtend.clickLinkWord=function(){
+	$.facebox({div:"#add_word_link",closeDiv:true,opacity:0.7});
+}
+CKEDITOR.on("instanceLoaded", function(){
+	
+
+	$("#cke_33").append(
+			'<span class="cke_toolbar" role="toolbar" aria-labelledby="cke_31_label">'
+			+'<span class="cke_toolbar_start"></span>'
+			+'<span class="cke_toolgroup" role="presentation">'
+			+'<a class="cke_button cke_button__source cke_button_off" onclick="CKEDITOR.myExtend.clickLinkWord()" aria-haspopup="false" aria-labelledby="cke_32_label" role="button" hidefocus="true" tabindex="-1" title="添加词汇内链">'
+			+'<span class="cke_button_icon cke_button__source_icon"> </span>'
+			+'<span id="cke_32_label" class="cke_button_label cke_button__source_label" aria-hidden="false">添加词汇内链</span>'
+			+'</a>'
+			+'</span>'
+			+'<span class="cke_toolbar_end"></span>'
+			+'</span>'
+	);
+})
+
+
