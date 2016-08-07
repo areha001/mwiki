@@ -86,6 +86,9 @@
     {
       $('#facebox_overlay').css('opacity', data.opacity)
     }
+    if(data.afterLoad){
+    	$.facebox.settings.afterLoad = data.afterLoad;
+    }
     if (data.ajax) fillFaceboxFromAjax(data.ajax)
     else if (data.image) fillFaceboxFromImage(data.image)
     else if (data.div) fillFaceboxFromHref(data.div)
@@ -101,6 +104,7 @@
   $.extend($.facebox, {
     settings: {
       opacity      : 0,
+      afterLoad	   : null,
       overlay      : true,
       loadingImage : '/xreport/js/facebox/loading.gif',
       closeImage   : '/xreport/js/facebox/loading.gif',
@@ -279,6 +283,10 @@
     // ajax
     } else {
       fillFaceboxFromAjax(href, klass)
+    }
+    if($.facebox.settings.afterLoad)
+    {
+    	$.facebox.settings.afterLoad();
     }
   }
 

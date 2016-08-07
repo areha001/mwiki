@@ -26,6 +26,11 @@ public class Word extends BaseEntity{
 	@Column
 	private String groupName;
 	/**
+	 * 英文名
+	 */
+	@Column
+	private String englishName;
+	/**
 	 * 角色名
 	 */
 	@Column
