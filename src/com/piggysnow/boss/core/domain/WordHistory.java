@@ -1,12 +1,13 @@
 package com.piggysnow.boss.core.domain;
 
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.piggysnow.boss.core.services.DictService;
 import com.piggysnow.boss.core.web.admin.controller.StaticServiceController;
 import com.wds.base.dao.BaseEntity;
 
@@ -100,16 +101,48 @@ public class WordHistory extends BaseEntity{
 	
 	public String getDescriptionExtra()
 	{
-		String k = description.replaceAll("\\[link(word|item) (.*?)\\]", "<a class=\"innerlink\" href=\"" + StaticServiceController.getDictService().getDictInfo(SITE_PATH, 1) + "/$1/$2" +  "\">$2</a>");;
-		return k;
+		Pattern pattern = Pattern.compile("<a href=\"innerlink (.*?) (.*?)\"");
+		Matcher m = pattern.matcher(description);
+		StringBuffer sb = new StringBuffer();
+		while(m.find())
+		{
+			String wordData= m.group(2);
+			String dataType= m.group(1);
+//			System.out.println(wordData);
+//			System.out.println(dataType);
+			Word w = StaticServiceController.getWordService().findWord(wordData);
+			String classInfo = " class=\"wordlink hasref\" ";
+			if(w == null)
+			{
+				classInfo = " class=\"wordlink noref\" ";
+			}
+			String uri = StaticServiceController.getDictService().getDictInfo(SITE_PATH, 1) + "/" + dataType+ "/" + wordData;
+//			System.out.println("<a href=\"" + uri + "\"");
+			m.appendReplacement(sb, "<a " + classInfo + " href=\"" + uri + "\"");
+		}
+		m.appendTail(sb);
+		return sb.toString();
+//		Pattern pattern = Pattern.compile("\\[link(word|item) (.*?)\\]");
+//		
+//		String k = description.replaceAll("\\[link(word|item) (.*?)\\]", "<a class=\"innerlink\" href=\"" + StaticServiceController.getDictService().getDictInfo(SITE_PATH, 1) + "/$1/$2" +  "\">$2</a>");;
+//		return k;
 	}
 	
 	public static String SITE_PATH = "SITE_PATH";
 	
 	public static void main(String...strings)
 	{
-		String description= "<sdfsdf>[linkword sdfsdfsdf]awgawegaweg</sdfsdf>[linkitem sfsadfsfsdf]wagwegwagwagweg[linkewrtwe awgaw]";
-		String k = description.replaceAll("\\[link(word|item) (.*?)\\]", "<a class=\"innerlink\" href=\"" + "dd"+ "/$1/$2" +  "\">$2</a>");
-		System.out.println(k);
+//		String description= "<sdfsdf>[linkword sdfsdfsdf]awgawegaweg</sdfsdf>[linkitem sfsadfsfsdf]wagwegwagwagweg[linkewrtwe awgaw]";
+//		String k = description.replaceAll("\\[link(word|item) (.*?)\\]", "<a class=\"innerlink\" href=\"" + "dd"+ "/$1/$2" +  "\">$2</a>");
+//		System.out.println(k);
+//		
+		 Pattern p = Pattern.compile("cat(a)");
+		 Matcher m = p.matcher("one cata two pigs in the yard");
+		 StringBuffer sb = new StringBuffer();
+		 while (m.find()) {
+		     m.appendReplacement(sb, "dogeee");
+		 }
+		 m.appendTail(sb);
+		 System.out.println(sb.toString());
 	}
 }

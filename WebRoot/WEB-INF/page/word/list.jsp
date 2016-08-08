@@ -3,8 +3,9 @@
 <div class="bf_container_nav">
 <ul>
 <li class="normal"><a href="<c:url value='/'/>">首页</a></li>
+<!-- 
 <li class="normal"><a href="<c:url value='/word/list'/>">Lolita词条</a></li>
-<li class="normal"><a href="<c:url value='/word/list'/>">常用词表</a></li>
+<li class="normal"><a href="<c:url value='/word/list'/>">常用词表</a></li> -->
 <li class="last"></li>
 </ul>
 </div>

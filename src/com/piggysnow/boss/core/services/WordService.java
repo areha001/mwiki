@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.piggysnow.boss.core.domain.Word;
 import com.piggysnow.common.dao.HibernateEntityDao;
+import com.piggysnow.common.dao.Page;
 @Service
 public class WordService extends HibernateEntityDao<Word>{
 	
@@ -17,5 +18,11 @@ public class WordService extends HibernateEntityDao<Word>{
 	public Word findWord(String name)
 	{
 		return findOne("from Word where name = ? ", name);
+	}
+
+	public List<Word> findLikedWord(String name)
+	{
+		Page p = new Page(8, false);
+		return findPage(p, "from Word where name like ? ", "%"+name+"%");
 	}
 }

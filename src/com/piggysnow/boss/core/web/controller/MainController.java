@@ -1,6 +1,5 @@
 package com.piggysnow.boss.core.web.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.piggysnow.boss.core.domain.Item;
 import com.piggysnow.boss.core.services.ItemService;
-import com.piggysnow.boss.utils.HttpUtil;
+import com.piggysnow.boss.core.web.admin.controller.ControllerContainer;
 import com.piggysnow.boss.utils.MyModelAndView;
 import com.piggysnow.common.dao.Page;
 
@@ -29,7 +28,8 @@ public class MainController{
 	public ModelAndView main(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		return list(request, response);
+		return ControllerContainer.getInstance().getWordController().index(request, response);
+//		return list(request, response);
 	}
 	
 

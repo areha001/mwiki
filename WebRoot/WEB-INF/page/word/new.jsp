@@ -31,7 +31,7 @@ availableTags.push("${i.name}")
 </c:forEach>
                    
 $( "#parent_name" ).autocomplete({
-    source: availableTags,
+    source: "<c:url value='/word/findToData'/>",
     minLength:0
   }).dblclick(function(){$(this).autocomplete("search","")})
   

@@ -1,12 +1,16 @@
 package com.piggysnow.boss.core.web.controller;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -137,9 +141,31 @@ public class WordController extends MultiActionController {
 		WordHistory wh = wordHistoryService.findWord(name);
 		mav.addObject("word", word);
 		mav.addObject("wh", wh);
+		mav.addObject("name", name);
 		
 		VisitCount visitCount = visitCountService.findAndVisit(MOUDLE, name);
 		mav.addObject("visitCount", visitCount);
 		return mav;
 	}
+
+	@RequestMapping(value="/findToData",method=RequestMethod.GET) 
+	public ModelAndView findToData(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		String term = request.getParameter("term");
+		response.setContentType("text/html");
+		response.setCharacterEncoding("utf-8");
+		System.out.println(term);
+
+		List<String> list = new ArrayList<String>();
+		List<Word> wordList = wordService.findLikedWord(term);
+		for(Word w: wordList)
+		{
+			list.add(w.getName());
+		}
+		String info = JSONArray.fromObject(list).toString();
+		response.getWriter().write(info);
+		return null;
+	}
+	
 }

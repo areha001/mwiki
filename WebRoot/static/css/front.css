@@ -70,6 +70,10 @@ div.item_p h2 a{text-indent:-50px;}
 #word_content{margin:15px;}
 .word_description_wrapper{padding:5px 130px 15px 25px;padding-top:5px;text-align:left;position:relative;min-height:100px;}
 .word_desc{font-size:120%;padding-bottom:15px;}
+.word_desc p,.word_desc li, .word_desc td, .word_desc div, .word_desc span{font-size:120%;}
+.word_desc a:link, .word_desc a:visited{color:#3366ff; text-shadow:3px 3px 3px #ccccFF;}
+.word_desc a.noref:link, .word_desc a.noref:visited{color:#3366ff; background:#ddbbbb;}
+
 .word_title{padding:15px;border-bottom:#33CCFC 5px dotted; text-align:left;text-indent:30px;}
 .return_last{text-align:left;padding:15px;}
 .related_word h2{text-align:left;padding:10px;border-bottom:#33CCFC 3px solid;}

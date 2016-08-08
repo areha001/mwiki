@@ -40,8 +40,11 @@ $.facebox.settings.afterLoad = function(){
   }).dblclick(function(){$(this).autocomplete("search","")})
 }
 CKEDITOR.addWord = function(){
-	ck0.insertText("[linkword " + $("#facebox").find(".x_word_name").val() + "]");
-	$.facebox.close()
+	
+	var name = $("#facebox").find(".x_word_name").val();
+	var html_element = CKEDITOR.dom.element.createFromHtml("<a href=\"innerlink word " + name + "\" >" + name + "</a>");
+	ck0.insertElement(html_element);
+	$.facebox.close();
 }
 </script>
 </div>

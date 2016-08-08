@@ -16,6 +16,7 @@ import com.piggysnow.boss.core.services.ServerService;
 import com.piggysnow.boss.core.services.UserService;
 import com.piggysnow.boss.core.services.UserTeamRoleService;
 import com.piggysnow.boss.core.services.VersionService;
+import com.piggysnow.boss.core.services.WordService;
 import com.piggysnow.boss.utils.JobContainer;
 import com.piggysnow.boss.utils.MailSender;
 
@@ -52,6 +53,8 @@ public class StaticServiceController extends MultiActionController {
 	protected VersionService versionService ;
 	@Resource
 	protected GmNoticeService gmNoticeService ;
+	@Resource
+	protected WordService wordService ;
 	
 	public static HappenService getHappenService() {
 		return con.happenService;
@@ -123,5 +126,9 @@ public class StaticServiceController extends MultiActionController {
 	public void setGmNoticeService(GmNoticeService gmNoticeService) {
 		this.gmNoticeService = gmNoticeService;
 	}
+	public static WordService getWordService() {
+		return con.wordService;
+	}
+	
 	
 }
