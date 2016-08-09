@@ -38,25 +38,28 @@ CKEDITOR.editorConfig = function( config ) {
 	
 };
 CKEDITOR.myExtend={};
+CKEDITOR.myExtend.callbacks={};
 
-CKEDITOR.myExtend.clickLinkWord=function(){
-	$.facebox({div:"#add_word_link",closeDiv:true,opacity:0.7});
+CKEDITOR.myExtend.addFunction = function(add_pos, name, title, clickCallback){
+
+	CKEDITOR.myExtend.callbacks[name] = clickCallback;
+	
+	var str = 	'<span class="cke_toolbar" role="toolbar" aria-labelledby="cke_31_label">'
+		+'<span class="cke_toolbar_start"></span>'
+		+'<span class="cke_toolgroup" role="presentation">'
+		+'<a class="cke_button cke_button__source cke_button_off" onclick="CKEDITOR.myExtend.callbacks[\'' + name + '\']()" aria-haspopup="false" aria-labelledby="cke_32_label" role="button" hidefocus="true" tabindex="-1" title="' + title + '">'
+		+'<span class="cke_button_icon cke_button__source_icon"> </span>'
+		+'<span class="cke_button_label cke_button__source_label" aria-hidden="false">' + name + '</span>'
+		+'</a>'
+		+'</span>'
+		+'<span class="cke_toolbar_end"></span>'
+		+'</span>';
+	$(add_pos).append(str);
 }
 CKEDITOR.on("instanceLoaded", function(){
-	
-
-	$("#cke_33").append(
-			'<span class="cke_toolbar" role="toolbar" aria-labelledby="cke_31_label">'
-			+'<span class="cke_toolbar_start"></span>'
-			+'<span class="cke_toolgroup" role="presentation">'
-			+'<a class="cke_button cke_button__source cke_button_off" onclick="CKEDITOR.myExtend.clickLinkWord()" aria-haspopup="false" aria-labelledby="cke_32_label" role="button" hidefocus="true" tabindex="-1" title="添加词汇内链">'
-			+'<span class="cke_button_icon cke_button__source_icon"> </span>'
-			+'<span id="cke_32_label" class="cke_button_label cke_button__source_label" aria-hidden="false">添加词汇内链</span>'
-			+'</a>'
-			+'</span>'
-			+'<span class="cke_toolbar_end"></span>'
-			+'</span>'
-	);
+	CKEDITOR.myExtend.addFunction("#cke_33", "添加词汇内链", "添加词汇内链", function(){
+		$.facebox({div:"#add_word_link",closeDiv:true,opacity:0.7});
+	});
 })
 
 

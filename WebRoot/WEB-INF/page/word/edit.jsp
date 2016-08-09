@@ -15,7 +15,8 @@
 <div class="edit_area edit_word" id="add_new_word">
 <form action="<c:url value='/word/edit/${name }'/>" method="post">
 	<div class="edit_content">
-	<p class="line"><span class="form_label">词条名: </span><input type="text" name="name" value="${name }" readonly="true"/></p>
+	<p class="line"><span class="form_label">词条名: </span><input type="text" name="name" value="${name }" readonly="readonly"/>
+	</p>
   	<textarea name="description" id="description" rows="10" cols="80">${wordHistory.description }</textarea>
 	<script>
 	CKEDITOR.config.height=300;
@@ -32,15 +33,14 @@
 	</div>
 	
 <script>
-var availableTags = ["aa","bb","cc","dd"];
+
 $.facebox.settings.afterLoad = function(){
 	$("#facebox").find(".x_word_name").autocomplete({
-    source: availableTags,
+	source: "<c:url value='/word/findToData'/>",
     minLength:0
   }).dblclick(function(){$(this).autocomplete("search","")})
 }
 CKEDITOR.addWord = function(){
-	
 	var name = $("#facebox").find(".x_word_name").val();
 	var html_element = CKEDITOR.dom.element.createFromHtml("<a href=\"innerlink word " + name + "\" >" + name + "</a>");
 	ck0.insertElement(html_element);

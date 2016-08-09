@@ -25,10 +25,6 @@
 	</div>
 </div>
 <script>
-var availableTags = [];
-<c:forEach var="i" items="${parentList}">
-availableTags.push("${i.name}")
-</c:forEach>
                    
 $( "#parent_name" ).autocomplete({
     source: "<c:url value='/word/findToData'/>",
