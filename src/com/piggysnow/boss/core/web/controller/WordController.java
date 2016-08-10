@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +27,7 @@ import com.piggysnow.boss.core.services.WordService;
 import com.piggysnow.boss.core.web.UserSession;
 import com.piggysnow.boss.utils.FlashMessage;
 import com.piggysnow.boss.utils.MyModelAndView;
+import com.piggysnow.common.dao.Page;
 
 @Controller
 @RequestMapping("/word") 
@@ -167,5 +167,55 @@ public class WordController extends MultiActionController {
 		response.getWriter().write(info);
 		return null;
 	}
+
+
+	@RequestMapping(value="/category/{name:.*}",method=RequestMethod.GET) 
+	public ModelAndView category(HttpServletRequest request,
+			HttpServletResponse response, @PathVariable String name) throws Exception {
+
+		MyModelAndView mav = new MyModelAndView("word/category");
+		Word word = wordService.findOne("from Word where name = ? ", name);
+		WordHistory wh = wordHistoryService.findWord(name);
+
+		Page page = new Page(request);
+		List<Word> list = wordService.findSubWard(page, name);
+
+		mav.addObject("page", page);
+		mav.addObject("list", list);
+		mav.addObject("word", word);
+		mav.addObject("wh", wh);
+		mav.addObject("name", name);
+		
+		VisitCount visitCount = visitCountService.findAndVisit(MOUDLE, name);
+		mav.addObject("visitCount", visitCount);
+		return mav;
+	}
+
+	@RequestMapping(value="/latest",method=RequestMethod.GET) 
+	public ModelAndView latest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		MyModelAndView mav = new MyModelAndView("word/category");
+		Page page = new Page(request);
+		List<Word> list = wordService.findLastedWord(page);
+		if(page.getTotalResults() > 100)
+		{
+			page.updateInfo(100, page.getPageIndex());
+		}
+		String name = "最新词条";
+		
+		WordHistory wh = wordHistoryService.findWord(name);
+		mav.addObject("wh", wh);
+		
+		VisitCount visitCount = visitCountService.findAndVisit(MOUDLE, name);
+		mav.addObject("visitCount", visitCount);
+
+		mav.addObject("page", page);
+		mav.addObject("list", list);
+		mav.addObject("name", name);
+		
+		return mav;
+	}
+
 	
 }

@@ -17,19 +17,20 @@ body{background: url('../images/front/banner.gif') no-repeat scroll left top #fd
 #word_top h3{background:#deede0; color:#228b22;padding:15px;}
 #word_top a{font-size:120%;}
 #word_top #latest_word a{padding:5px ; line-height:1.8em; word-break:no-break;}
-
+#word_top h3 a{font-size:100%;color:#228b22;}
 .clear{height:1px;width:1px;clear:both;}
 #cleartop{height:1px;width:1px;}
-#topx{width:300px; background:rgba(255, 255, 255, 0.6);position:absolute;z-index:1;
-border:1px dashed #777;
-right:60px;padding-top:15px;width:300px;}
+#top_login_area{width:300px; background:rgba(255, 255, 255, 0.6);position:absolute;z-index:1;
+border:1px dashed #777;right:60px;padding-top:15px;}
+
+
 #m_right{margin-left:170px;margin-top:130px;margin-right:10px; background:rgba(255, 255, 255, 0.8);
 border:1px solid #ccc;border-radius: 10px;position:relative;}
 .bf_container_nav ul {position:absolute;top:-36px;}
 .bf_container_nav ul li.normal{float:left;padding:5px 10px ;background:rgba(245, 245, 245, 0.8);
 border:1px solid #cff; border-bottom:none;border-radius: 3px;}
 .bf_container_nav ul li.last{float:none;clear:both;width:1px;}
-
+.related_word{padding-right:50px;}
 
 
 a.more{color:#66e;text-shadow:3px 3px 3px #ccccFF;}
@@ -83,8 +84,18 @@ div.item_p h2 a{text-indent:-50px;}
 #word_analyze ul,#word_analyze li,#word_analyze dd{margin:0;padding:0;line-height:1.7em;}
 #word_analyze li span{color:#555;}
 #word_category{color:#777;text-align:left;padding-bottom:25px;}
-a.innerlink:link, a.innerlink:visited{color:#3366FF!important; font-weight:bold;}
+a.innerlink:link, a.innerlink:visited{color:#1245cc!important; font-weight:bold;}
 #word_category span.word_elem{display:in-line;padding-right:40px;padding-top:5px;}
 
 div.edit_this{position:absolute;right:40px;top:40px;}
 div.edit_this a{padding-left:25px;font-size:120%;background:url('../ckeditor/plugins/icons.png') no-repeat;background-position:0 -312px;background-size:auto;}
+
+.related_word dl{padding:0 25px;}
+.related_word dd.rlw{float:left; width:32%;margin:0;padding:5px 0;}
+.related_word dd.rlw a{font-size:120%;font-weight: normal;}
+
+
+#lo_search{background:rgba(255, 255, 255, 0.6);position:absolute;z-index:1;border-radius: 5px;
+border:1px solid #ccc;top:70px;right:35px;padding:10px;;width:330px;}
+#search_keyword{width:250px;padding:8px;border: 1px solid #cccccc;border-radius: 5px;font-size:120%;}
+#lo_search .search_btn{background:#8aa5CF;color:#fff;;border:none;cursor:pointer;height:33px;font-size:120%;margin-left:3px;}

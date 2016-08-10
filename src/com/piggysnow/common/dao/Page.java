@@ -11,7 +11,7 @@ public class Page {
 	private int prePage = 1;// 前一页
 	private int nextPage = 1;// 下一页
 	private int totalResults = 0;// 总记录数
-	private static final int defaultPageSize = 15;// 默认每页记录数
+	private static final int defaultPageSize = 20;// 默认每页记录数
 	private int pageSize = defaultPageSize;// 每页记录数
 	private int pageIndex = 1;// 当前页码，从1开始算起 
 	private HttpServletRequest request;

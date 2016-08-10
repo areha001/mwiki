@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="right top_right">
-			<h3>最新词条</h3>
+			<h3><a href="<c:url value='/word/latest' />">最新词条</a></h3>
 			<div class="word_info" id="latest_word">
  				<c:forEach var="i" items="${list }" varStatus="vv">
 					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
@@ -31,7 +31,7 @@
 	</div>
 	<div class="item" id="word_top">
 		<div class="left itemw30">
-			<h3>店铺名称</h3>
+			<h3><a href="<c:url value='/word/category/店铺名称' />">店铺名称</a></h3>
 			<div class="word_info">
  				<c:forEach var="i" items="${list }" varStatus="vv">
 					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div class="left itemw30">
-			<h3>柄图简称</h3>
+			<h3><a href="<c:url value='/word/category/柄图简称' />">柄图简称</a></h3>
 			<div class="word_info">
  				<c:forEach var="i" items="${list }" varStatus="vv">
 					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>
@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<div class="left itemw30">
-			<h3>常用词语</h3>
+			<h3><a href="<c:url value='/word/category/常用词语' />">常用词语</a></h3>
 			<div class="word_info">
  				<c:forEach var="i" items="${list }" varStatus="vv">
 					<a href="<c:url value='/word/${i.name }' />">${i.name }</a>

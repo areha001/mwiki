@@ -43,5 +43,15 @@ public class MainController{
 		mav.addObject("list", list);
 		return mav;
 	}
+
+	@RequestMapping(value="/search",method=RequestMethod.GET) 
+	public ModelAndView search(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		String word = request.getParameter("word");
+		ModelAndView mav = new MyModelAndView("search");
+		mav.addObject("word", word);
+		return mav;
+	}
 	
 }

@@ -25,4 +25,14 @@ public class WordService extends HibernateEntityDao<Word>{
 		Page p = new Page(8, false);
 		return findPage(p, "from Word where name like ? ", "%"+name+"%");
 	}
+
+	public List<Word> findLastedWord(Page page)
+	{
+		return findPage(page, "from Word order by editTime desc");
+	}
+	
+	public List<Word> findSubWard(Page page, String name)
+	{
+		return findPage(page, "from Word where parentName = ? " , name);
+	}
 }
