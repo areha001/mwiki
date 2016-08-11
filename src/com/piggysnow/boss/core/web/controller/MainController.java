@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.piggysnow.boss.core.domain.Item;
+import com.piggysnow.boss.core.domain.Word;
 import com.piggysnow.boss.core.services.ItemService;
+import com.piggysnow.boss.core.services.WordService;
 import com.piggysnow.boss.core.web.admin.controller.ControllerContainer;
 import com.piggysnow.boss.utils.MyModelAndView;
 import com.piggysnow.common.dao.Page;
@@ -23,6 +25,8 @@ public class MainController{
 	
 	@Resource
 	ItemService itemService;
+	@Resource
+	WordService wordService;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET) 
 	public ModelAndView main(HttpServletRequest request,
@@ -48,9 +52,13 @@ public class MainController{
 	public ModelAndView search(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		String word = request.getParameter("word");
+		String keyword = request.getParameter("keyword");
 		ModelAndView mav = new MyModelAndView("search");
-		mav.addObject("word", word);
+		Page page = new Page(request);
+		List<Word> list = wordService.doSearch(page, keyword);
+		mav.addObject("search_keyword_global", keyword);
+		mav.addObject("list", list);
+		mav.addObject("page", page);
 		return mav;
 	}
 	

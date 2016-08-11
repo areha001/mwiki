@@ -148,4 +148,11 @@ public class Page {
 	public int getPageStart(){
 		return (getPageIndex() - 1) * getPageSize();
 	}
+	public int getPageEnd(){
+		int start = getPageStart();
+		int end = start + this.pageSize;
+		if(end > this.totalResults)
+			return this.totalResults;
+		return end;
+	}
 }

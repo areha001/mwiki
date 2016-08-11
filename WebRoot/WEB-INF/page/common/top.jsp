@@ -7,7 +7,7 @@
   
  <div id="lo_search">
   <form id="searchform" action="<c:url value='/search'/>" method="get">
-		  <input type="text" id="search_keyword" name="keyword" />
-		  <input type="submit" id="search_btn" class="search_btn" value="搜索" onclick="return $('#search_keyword').val()!=''"/>
+		  <input type="text" id="search_keyword" name="keyword" value="${search_keyword_global }"/>
+		  <input type="submit" id="search_btn" class="search_btn" value="搜索" onclick="return BuyLo.before_search()"/>
   </form>
  </div>
